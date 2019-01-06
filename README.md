@@ -1,11 +1,29 @@
 # Plantilla de Silabo CSUNSA
 
 ## Plantilla DUFA
-Contenido:
+
+
+Archivos:
 ```
 dufa.tex
 silabus.sty
 ```
+### Información para su uso
+Las plantillas en ambos formatos (DUFA e ICACIT), fueron diseñadas para que su edición sea sencilla, se definieron macros para simplificar la estructura tradicional del LaTeX adecuandola a la estructura de ambos documentos en sus respectivos formatos.
+
+La estructura se muestra a continuación con el código que lo genera, lo único que se necesita cambiar es el contenido dentro de las llaves como por ejemplo : 
+ ```latex
+\setNombreAsignatura{Base de Datos I}
+ ```
+ o el contenido dentro de los comandos begin y end , por ejemplo:
+
+```latex
+\begin{sumilla}
+\item uno
+\item dos
+\end{sumilla}
+```
+
 
 ![Color](https://github.com/RGiskard/SilaboCSUNSA/blob/master/imgReadme/dufa/informacionAcademica.png)
 
