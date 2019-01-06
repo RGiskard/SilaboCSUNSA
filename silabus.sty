@@ -14,10 +14,13 @@
 \usepackage{listofitems}
 \usepackage[spanish]{babel}
 \usepackage{forloop}
+\usepackage{xparse}
 \usepackage{titlesec}
 \usepackage{hyperref}
 %Fuente Arial
 \usepackage{helvet}
+%%%Variable global identacion
+\gdef \irDerecha{0.775cm}
 \renewcommand{\familydefault}{\sfdefault}
 %\setmainfont{Arial}
 %\usepackage{enumitem}%enumerado por letras
@@ -46,7 +49,7 @@
 
 %definiendo propio Parrafo
 \newcommand\Parrafo{\@startsection{paragraph}{4}{\TemaIndent}%
-  {3.25ex \@plus1ex \@minus.2ex}%
+  {2.25ex \@plus1ex \@minus.2ex}%
   {-1em}%
   {\raggedsection\normalfont\sectfont\nobreak\size@paragraph}%
 }
@@ -62,11 +65,14 @@
                                 {-3.5ex \@plus -1ex \@minus -.2ex}%
                                 {2.3ex \@plus.2ex}%
                                 {\normalfont\medium\bfseries}}
+                                
 \newcommand{\Unidadmark}[1]{}
 \newcounter{Unidad}
 
 %comando para definir nombres del seccionamiento customizado
 \newcommand{\nextUnidad}[1]{
+    \ifnum\value{Unidad}=3\Unidad{Sexta Unidad: #1}\fi
+    \ifnum\value{Unidad}=3\Unidad{Quinta Unidad: #1}\fi
     \ifnum\value{Unidad}=3\Unidad{Cuarta Unidad: #1}\fi
     \ifnum\value{Unidad}=2\Unidad{Tercera Unidad: #1}\fi
     \ifnum\value{Unidad}=1\Unidad{Segunda Unidad: #1}\fi
@@ -116,21 +122,21 @@
 \newcounter{Tema}
 
 %comando para definir nombres del seccionamiento customizado
-\newcommand{\nextTema}[2]{
-        \Tema{#1} \Parrafo{#2}
+\newcommand{\nextTema}[1]{
+        \Tema{#1} %\Parrafo{#2}
 }
+
+%\DeclareDocumentCommand{\nextTema}{o m}
+%{
+  %\IfNoValueTF{#2}
+%    \Tema{#2}%
+  %  {\Tema{#2} \Parrafo{#}}%
+%}
+
 
 \renewcommand{\theTema}{Tema \arabic{Tema}:}
 
 %*****************************
-
-
-
-
-
-
-
-
 
 
 %%% Aquí se dibuja el rectángulo del margen
@@ -176,22 +182,7 @@
 \usepackage{sectsty}
 \sectionfont{\fontsize{12}{15}\selectfont}%tamaño de fuente section
 \pagestyle{plain}
-%%Impresión de la fecha
-\newcommand{\fecha}{\vspace{.5cm} \noindent \textbf{FECHA:} \today }
-%%%%
-%presión de firma
-%\nombreProfesor
-\newcommand{\linea}[1]{\smash{\begin{center}\begin{tabular}{l} \hline #1 \end{tabular}
-\hspace*{-\tabcolsep}\end{center}}}
 
-
-\newcommand{\firma}
-{
-    \vspace{2cm}
-        %\hline
-        
-            \linea{\textbf{\gradoAbreviado\, \nombreProfesor}}
-}
     %%%Im definicón de las macros (entornos) las cajas se borrarán después, sólo es para ver el ámbito de los margenes hasta corregirlos y ubicarlos.
 %INFORMACIÓN ADMINISTRATIVA
 
@@ -213,23 +204,34 @@
 \newcommand{\sylabusHeader}{
     \noindent\begin{minipage}{\textwidth}% adapt widths of minipages to your needs
     \vspace{2mm}
-    \begin{center}
-        \includegraphics[width=6cm,height=2cm]{./images/image001.png}    
-    \end{center}
+    \includegraphics[width=4cm,height=1.5cm]{./images/image001.png}    
     \end{minipage}
     \begin{center}
         \begin{small}
-        UNIVERSIDAD NACIONAL DE SAN AGUSTÍN DE AREQUIPA \\
+        \textbf{UNIVERSIDAD NACIONAL DE SAN AGUSTÍN DE AREQUIPA \\
+        VICERRECTORADO ACADÉMICO \\
         FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS \\
         DEPARTAMENTO ACADÉMICO DE INGENIERÍA DE SISTEMAS E INFORMÁTICA \\
-        SÍLABO \periodoAcademico
+        SÍLABO \periodoAcademico}
         \end{small}
     \end{center}
-    \paragraph{ASIGNATURA: \nombreAsignatura}  
+    \begin{center}
+        \paragraph{ASIGNATURA: \nombreAsignatura}  
+    \end{center}
+    
+}
+
+\newlength\mystoreparindent
+\newenvironment{identacionDerecha}[1]{%
+\setlength{\mystoreparindent}{\the\parindent}
+\setlength{\parindent}{#1}
+}{%
+\setlength{\parindent}{\mystoreparindent}
 }
 
 %Definicion del comando para la sección de información académica
 \newcommand{\academicaTable}[9]{
+
     \gdef\escuela{#1}
     \gdef\codigoAsignatura{#2}
     \gdef\semestre{#3}
@@ -244,7 +246,7 @@
 \newcommand{\academica}[3]{
     \section{INFORMACIÓN ACADÉMICA}
     \setsepchar{,}
-    \readlist\mylist{#3}
+    \begin{identacionDerecha}{\irDerecha}\readlist\mylist{#3}
     \begin{tabular}{|l|ll|}
 \hline
 \multicolumn{1}{|l|}{Periodo académico}&	\multicolumn{2}{|l|}{\periodoAcademico}\\
@@ -306,7 +308,7 @@
 
 \hline
 \end{tabular}
-
+\end{identacionDerecha}
 }
 
 \newcommand{\administrativaTable}[9]{
@@ -325,6 +327,7 @@
 \newcommand{\administrativa}[4]{
     \section{INFORMACIÓN ADMINISTRATIVA}
     %\begin{center}
+    \begin{identacionDerecha}{\irDerecha}
     \begin{tabular}{|l|lllll|}
     \hline
     \multicolumn{1}{|l|}{Profesor}&	\multicolumn{5}{|l|}{\nombreProfesor}\\
@@ -361,6 +364,7 @@
     \multicolumn{1}{|l|}{#4} \\
     \hline
     \end{tabular}
+    \end{identacionDerecha}
     %\end{center}
 }
 
@@ -469,12 +473,14 @@
 \newenvironment{fundamentacion}
     {
     \section{FUNDAMENTACIÓN (JUSTIFICACIÓN)}
-    \begin{tabular}{|p{0.9\textwidth}|}
-    \hline\\
+    \begin{identacionDerecha}{.7cm}
+    \begin{tabular}{p{0.95\textwidth}}
+   % \hline\\
     }
     { 
-    \\\\\hline
+    %\\\\\hline
     \end{tabular} 
+    \end{identacionDerecha}
     }
     
 % *******
@@ -533,6 +539,25 @@
 } 
     
 % :'v :( (=)
+
+%%Impresión de la fecha
+\newcommand{\fecha}{\vspace{.5cm} \noindent \textbf{FECHA:} \today }
+%%%%
+%presión de firma
+%\nombreProfesor
+\newcommand{\linea}[1]{\smash{\begin{tabular}{c} \hline #1 \end{tabular}
+\hspace*{-\tabcolsep}}}
+
+
+\newcommand{\firma}
+{
+    \vspace{2cm}
+        %\hline
+        \begin{center}
+            \linea{\textbf{\gradoAbreviado\, \nombreProfesor}}
+        \end{center}       
+            
+}
 
 
 %\begin{tabular}{|l|l|l|l|l|}

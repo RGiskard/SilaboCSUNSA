@@ -6,7 +6,6 @@
 \usepackage{icacit}
 \usepackage[margin=2.5cm,headheight=200pt,includeheadfoot]{geometry}
 
-
 \setpapersize{A4}
 \setmargins{2.5cm}       % margen izquierdo
 {1.5cm}                        % margen superior
@@ -17,25 +16,11 @@
 {0pt}                             % altura del pie de página
 {2cm}                           % espacio entre el texto y el pie de página
 
- 
-
-%\pagestyle{fancy}
-%\fancyhf{}
-%\rhead{UNIVERSIDAD NACIONAL DE SAN AGUSTIN DE AREQUIPA
-%FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS}
-%\lhead{\includegraphics[scale=1]{images/image001.png}}
-
-%\renewcommand{\headrulewidth}{0pt}
-
 
 \begin{document}
 
-
-
-
-Sílabos de Curso
-
-ESCUELA PROFESIONAL DE INTENIERÍA
+\sylabusHeader
+\sylabusTitle
 
 \curso
 {1702226} %Código del curso
@@ -67,16 +52,29 @@ ESCUELA PROFESIONAL DE INTENIERÍA
     \begin{descripcion}
         El curso de Base de Datos I tiene propósito desarrollar en el estudiante la capacidad de implementar una base de datos empleando adecuadamente los fundamentos de normalización, el modelo entidad-relación y el diseño lógico, basado en los requerimientos de información de una organización.
     \end{descripcion}
+    \begin{requisitos}
+        \newItemReq{1701209}{Ciencia de la Computación I}
+        \newItemReq{1701208}{Estructuras Discretas I}
+    \end{requisitos}
+    \ObligatorioElectivo
+    {X} %Marcar esta si es obligatorio 
+    {} %Marcar esta si es electivo
 \end{datosCurso}
 
-Nombre del Curso
+\begin{objetivosCurso}
+    \begin{resultadosEspecificos}
+        Elaborar un diseño (conceptual y lógico) apropiado de una base de datos que permita almacenar información clave y estratégica para la empresa, la cual constituye un punto de partida para  construir una base de datos para un sistema de información. Implementar una base de datos relacional basados en los requerimientos de información de una organización, optimizando el acceso a la base de datos de las mismas bajo criterios de normalización.
+    \end{resultadosEspecificos}
+    \begin{resultadosEstudiante}
+        1) La capacidad de aplicar principios de diseño y desarrollo en la construcción de sistemas de software de diversa complejidad 2) Aplica en un nivel intermedio.
+    \end{resultadosEstudiante}
+\end{objetivosCurso}
 
-Créditos y horas semanal:
-
-Nombre del Instructor o Coordinador del Curso
-
-Libro texto: titulo y autor
-
+\begin{ListaTemas}
+\nextUnidad{Identificación de requerimientos}
+\nextUnidad{Diseño de la base de datos}
+\nextUnidad{Construcción de bases de datos}
+\end{ListaTemas}
 
 
 \end{document}

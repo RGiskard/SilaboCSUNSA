@@ -2,6 +2,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{bm}
+\usepackage{mwe}
 \usepackage{graphicx}
 \usepackage{wrapfig}
 \usepackage{fancybox}
@@ -20,6 +21,8 @@
 \usepackage{titlesec}
 \usepackage{tabularx}
 \usepackage{hyperref}
+%%comando centrar tablas
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
 %Fuente Arial
 \usepackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
@@ -34,6 +37,8 @@
 \newcolumntype{b}{X}
 \newcolumntype{s}{>{\hsize=.5\hsize}X}
 
+\titleformat*{\section}{\large\bfseries}
+
 
 %\titleformat{\section}[block]{\bfseries}{\thesection.}{1em}{} 
 %\titleformat{\subsection}[block]{\hspace{2em}}{\thesubsection}{1em}{}
@@ -43,6 +48,29 @@
 %%Espaciado en paragraph
 %\usepackage{parskip}
 \setlength{\parindent}{0cm}
+
+%%Header del silabo
+\newcommand{\sylabusHeader}{
+    \noindent\begin{minipage}{\textwidth}% adapt widths of minipages to your needs
+    %\vspace{2mm}
+    
+    \begin{tabular}{ll}
+        \raisebox{-.7\height}{\includegraphics[width=4cm,height=1.5cm]{./images/image001.png}} &  \multicolumn{1}{p{12cm}}{
+        UNIVERSIDAD NACIONAL DE SAN AGUSTÍN DE AREQUIPA FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS}
+    \end{tabular}
+    \end{minipage}
+}
+
+\newcommand{\sylabusTitle}{
+    \begin{center}
+        \vspace{1cm}
+        \textbf{\underline{Sílabos de Curso}} \par
+        \vspace{0.4cm}
+        \textbf{ESCUELA PROFESIONAL DE CIENCIA DE LA COMPUTACIÓN}
+    \end{center}
+}
+
+
 
 %%Comando que gerena la tabla del curso
 \newcommand{\curso}[3]{
@@ -57,7 +85,7 @@
 %%Comando que genera la tabla de creditos y horas
 \newcommand{\creditosHoras}[6]{
     \section{\normalfont Créditos y horas semanal:}
-        \begin{tabularx}{\textwidth}{|X|X|X|X|X|X|}
+        \begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|Y|}
             \hline
             \textbf{N\textsuperscript{o}\xspace Créditos} & \textbf{H. Teoría} & \textbf{H. Práctica} & \textbf{H. T-P} & \textbf{H. Lab.} & \textbf{T. Horas} \\ \hline
             #1 & #2 & #3 & #4 & #5 & #6 \\ \hline
@@ -76,9 +104,10 @@
 }
 
 %%Comando que genera el libro principal
+
 \newcommand{\libro}[3]{
     \section{\normalfont Libro texto: título, autor, año:}
-    \begin{tabularx}{\textwidth}{|X|X|X|}
+    \begin{tabularx}{\textwidth}{|Y|Y|Y|}
         \hline
         \textbf{Título} & \textbf{Autor} & \textbf{Año} \\ \hline
         #1 & #2 & #3 \\ \hline
@@ -90,24 +119,121 @@
      \begin{enumerate}[label=\alph*.]
          \item Otros materiales suplementarios
      \end{enumerate}
-     \begin{tabularx}{\textwidth}{|X|X|X|}
+     \begin{tabularx}{\textwidth}{|Y|Y|Y|}
         \hline
         \textbf{Título} & \textbf{Autor} & \textbf{Año} \\ \hline
         #1 & #2 & #3 \\ \hline
     \end{tabularx}
 }
 
+
+%%Definición de entornos y commandos para la información del curso
 \newenvironment{datosCurso}{
     \section{\normalfont Información específica del curso}
     \begin{enumerate}[label=\alph*.]
 }{\end{enumerate}}
 \newenvironment{descripcion}{
-    \item Breve descripción del contenido del curso: \\
+    \item Breve descripción del contenido del curso: \par
     \begin{tabular}{|p{15cm}|}
+    \hline
 }{
     \\ \hline
     \end{tabular}
 }
+\newenvironment{requisitos}{
+    \item Requisitos previos o correquisitos: \par
+    \begin{tabular}{|p{15cm}|}
+    \hline
+    \\
+}{
+    \\ \hline
+    \end{tabular}
+}
+\newcommand{\newItemReq}[2]{
+    #1 - #2 \\
+}
+\newcommand{\ObligatorioElectivo}[2]{
+    \item Obligatorio o Electivo: \par
+    \begin{tabularx}{15.5cm}{|b|s|b|s|}
+    \hline
+    Obligatorio & #1 & Electivo & #2 \\ \hline
+    \end{tabularx}
+}
+
+\newenvironment{objetivosCurso}{
+    \section{\normalfont Objetivos específicos del curso}
+    \begin{enumerate}[label=\alph*.]
+}{
+    \end{enumerate}
+}
+\newenvironment{resultadosEspecificos}{
+    \item Resultados específicos de la enseñanza: \par
+    \begin{tabular}{|p{15cm}|}
+    \hline
+}{
+    \\ \hline
+    \end{tabular}
+}
+\newenvironment{resultadosEstudiante}{
+    \item Resultados del estudiante que son abordados por el curso: \par
+    \begin{tabular}{|p{15cm}|}
+    \hline
+}{
+    \\ \hline
+    \end{tabular}
+}
+
+
+
+% UNIDAD
+%
+% definiendo un propio sectioning
+
+\newlength\UnidadIndent
+\setlength\UnidadIndent{0.7cm}
+
+\newcommand\Unidad{\@startsection {Unidad}{1}{\UnidadIndent}%
+                                {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                {2.3ex \@plus.2ex}%
+                                {\normalfont\medium\bfseries}}
+                                
+\newcommand{\Unidadmark}[1]{}
+\newcounter{Unidad}
+
+%comando para definir nombres del seccionamiento customizado
+\newcommand{\nextUnidad}[1]{
+    \ifnum\value{Unidad}=3\Unidad{Sexta Unidad: #1}\fi
+    \ifnum\value{Unidad}=3\Unidad{Quinta Unidad: #1}\fi
+    \ifnum\value{Unidad}=3\Unidad{Cuarta Unidad: #1}\fi
+    \ifnum\value{Unidad}=2\Unidad{Tercera Unidad: #1}\fi
+    \ifnum\value{Unidad}=1\Unidad{Segunda Unidad: #1}\fi
+    \ifnum\value{Unidad}=0\Unidad{Primera Unidad: #1}\fi
+}
+
+\renewcommand{\theUnidad}{}
+
+%*****************************
+
+% *******
+% Breve lista de temas
+% *******
+
+\newenvironment{ListaTemas}
+    {
+    \section{\normalfont ListaTemas}
+    \begin{tabular}{|p{15cm}|}
+    \hline
+    }
+    {
+        \\ \hline
+        \end{tabular}    
+    }
+
+
+
+%
+% END CONTENIDOS
+%
 
 
 %%%%%%Entornos
