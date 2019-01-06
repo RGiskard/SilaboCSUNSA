@@ -18,6 +18,10 @@ La estructura se muestra a continuación con el código que lo genera, lo único
 
 ## Plantilla DUFA
 
+Documento original :
+
+[Formato DUFA](https://github.com/RGiskard/SilaboCSUNSA/blob/master/imgReadme/Formato%20S%C3%AClabos%20DUFA.docx).
+
 
 Archivos:
 ```
@@ -242,8 +246,97 @@ alumno que no se haga presente en el día establecido, perderá su derecho a rec
 
 
 # Plantilla ICACIT
+
+Documento original :
+
+[Formato ICACIT](https://github.com/RGiskard/SilaboCSUNSA/blob/master/imgReadme/Formato%20Sìlabos%20ICACIT.docx).
+
+
+Archivos:
 ```
 icacit.tex
 icacit.sty
+```
+
+![Color](https://github.com/RGiskard/SilaboCSUNSA/blob/master/imgReadme/icacit/nombreCurso.png)
+```latex
+\curso
+{1702226} %Código del curso
+{BASE DE DATOS I} %Nombre del curso
+{2018-B} %Semestre
+
+```
+
+![Color](https://github.com/RGiskard/SilaboCSUNSA/blob/master/imgReadme/icacit/creditosHoras.png)
+
+```latex
+\creditosHoras
+{4} %Número de creditos
+{2} %Horas teoría
+{} %Horas práctica
+{} %Horas teórico-practica
+{4} %Horas laboratorio
+{6} %Total de horas
+
+```
+
+![Color](https://github.com/RGiskard/SilaboCSUNSA/blob/master/imgReadme/icacit/nombreInstructor.png)
+```latex![Color](https://github.com/RGiskard/SilaboCSUNSA/blob/master/imgReadme/icacit/creditosHoras.png)
+\instructor
+{Dr. Edward Hinojosa Cárdenas}
+```
+
+![Color](https://github.com/RGiskard/SilaboCSUNSA/blob/master/imgReadme/icacit/libros.png)
+```latex
+\libro
+{Database System Concepts (6th ed.)} %Título del libro
+{Korth H, Saenz F, Silberschatz A, Sudarshan S} %Autor del libro
+{2013} %Año del libro
+
+\libroSecundario
+{Database System Concepts (6th ed.)} %Título del libro
+{Korth H, Saenz F, Silberschatz A, Sudarshan S} %Autor del libro
+{2013} %Año del libro
+```
+
+![Color](https://github.com/RGiskard/SilaboCSUNSA/blob/master/imgReadme/icacit/informacionEspecifica.png)
+```latex
+\begin{datosCurso}
+    \begin{descripcion}
+        El curso de Base de Datos I tiene propósito desarrollar en el estudiante la capacidad de implementar una base de datos empleando adecuadamente los fundamentos de normalización, el modelo entidad-relación y el diseño lógico, basado en los requerimientos de información de una organización.
+    \end{descripcion}
+    \begin{requisitos}
+        \newItemReq{1701209}{Ciencia de la Computación I}
+        \newItemReq{1701208}{Estructuras Discretas I}
+    \end{requisitos}
+    \ObligatorioElectivo
+    {X} %Marcar esta si es obligatorio 
+    {} %Marcar esta si es electivo
+\end{datosCurso}
+
+```
+
+![Color](https://github.com/RGiskard/SilaboCSUNSA/blob/master/imgReadme/icacit/objetivosEspecificos.png)
+```latex
+\begin{objetivosCurso}
+    \begin{resultadosEspecificos}
+        Elaborar un diseño (conceptual y lógico) apropiado de una base de datos que permita almacenar información clave y estratégica para la empresa, la cual constituye un punto de partida para  construir una base de datos para un sistema de información. Implementar una base de datos relacional basados en los requerimientos de información de una organización, optimizando el acceso a la base de datos de las mismas bajo criterios de normalización.
+    \end{resultadosEspecificos}
+    \begin{resultadosEstudiante}
+        1) La capacidad de aplicar principios de diseño y desarrollo en la construcción de sistemas de software de diversa complejidad 2) Aplica en un nivel intermedio.
+    \end{resultadosEstudiante}
+\end{objetivosCurso}
+
+```
+![Color](https://github.com/RGiskard/SilaboCSUNSA/blob/master/imgReadme/icacit/listaTemas.png)
+
+El número de unidad (primera unidad, segunda unidad, etc ) se autogenera cada vez que se usa \nextUnidad{...} :
+
+```latex
+\begin{ListaTemas}
+ \nextUnidad{Identificación de requerimientos}
+ \nextUnidad{Diseño de la base de datos}
+ \nextUnidad{Construcción de bases de datos}
+\end{ListaTemas}
 ```
 
