@@ -1,0 +1,113 @@
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{fancybox}
+\usepackage{tikz}
+\usepackage{blindtext}
+\usepackage{titling}%title options
+\usepackage{lipsum}
+%\usepackage[t1]{fontspec}
+%\setmainfont{Times New Roman} %fuente 
+%\usepackage{mathptmx}% fuente similar a times
+\usepackage{multirow}
+\usepackage[shortlabels]{enumitem}
+\usepackage{listofitems}
+\usepackage[spanish]{babel}
+\usepackage{forloop}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{hyperref}
+%Fuente Arial
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+%\setmainfont{Arial}
+%\usepackage{enumitem}%enumerado por letras
+%\renewcommand{\theenumi}{\Alph{enumi}}
+\newcommand{\tabitem}{~\llap{\textbullet}~~} %Comando para items dentro de tablas
+\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
+\newcommand{\tab}[1]{\hspace{.2\textwidth}\rlap{#1}}
+
+%Columnas para tabularx
+\newcolumntype{b}{X}
+\newcolumntype{s}{>{\hsize=.5\hsize}X}
+
+
+%\titleformat{\section}[block]{\bfseries}{\thesection.}{1em}{} 
+%\titleformat{\subsection}[block]{\hspace{2em}}{\thesubsection}{1em}{}
+%\titleformat{\subsection}[runin]{\itshape}{\thesubsection.}{3pt}{\space}[.]
+%\titlespacing*{\subsection}{\parindent}{1ex}{1em}
+
+%%Espaciado en paragraph
+%\usepackage{parskip}
+\setlength{\parindent}{0cm}
+
+%%Comando que gerena la tabla del curso
+\newcommand{\curso}[3]{
+    \section{\normalfont Nombre del Curso:}
+        \begin{tabularx}{\textwidth}{|s|b|s|}
+            \hline
+            \textbf{Código} & \textbf{Nombre} & \textbf{Semestre} \\ \hline
+            #1 & #2 & #3 \\ \hline
+        \end{tabularx}
+}
+
+%%Comando que genera la tabla de creditos y horas
+\newcommand{\creditosHoras}[6]{
+    \section{\normalfont Créditos y horas semanal:}
+        \begin{tabularx}{\textwidth}{|X|X|X|X|X|X|}
+            \hline
+            \textbf{N\textsuperscript{o}\xspace Créditos} & \textbf{H. Teoría} & \textbf{H. Práctica} & \textbf{H. T-P} & \textbf{H. Lab.} & \textbf{T. Horas} \\ \hline
+            #1 & #2 & #3 & #4 & #5 & #6 \\ \hline
+        \end{tabularx}
+    
+}
+
+%%Comando que gerenra al isntructor
+\newcommand{\instructor}[1]{
+    \section{\normalfont Nombre del instructor o Coordinador del Curso:}
+    \begin{tabularx}{\textwidth}{|X|}
+        \hline
+        \\
+        #1 \\  \\ \hline
+    \end{tabularx}
+}
+
+%%Comando que genera el libro principal
+\newcommand{\libro}[3]{
+    \section{\normalfont Libro texto: título, autor, año:}
+    \begin{tabularx}{\textwidth}{|X|X|X|}
+        \hline
+        \textbf{Título} & \textbf{Autor} & \textbf{Año} \\ \hline
+        #1 & #2 & #3 \\ \hline
+    \end{tabularx}
+}
+
+%%Comando que genera el libro secundario
+\newcommand{\libroSecundario}[3]{
+     \begin{enumerate}[label=\alph*.]
+         \item Otros materiales suplementarios
+     \end{enumerate}
+     \begin{tabularx}{\textwidth}{|X|X|X|}
+        \hline
+        \textbf{Título} & \textbf{Autor} & \textbf{Año} \\ \hline
+        #1 & #2 & #3 \\ \hline
+    \end{tabularx}
+}
+
+\newenvironment{datosCurso}{
+    \section{\normalfont Información específica del curso}
+    \begin{enumerate}[label=\alph*.]
+}{\end{enumerate}}
+\newenvironment{descripcion}{
+    \item Breve descripción del contenido del curso: \\
+    \begin{tabular}{|p{15cm}|}
+}{
+    \\ \hline
+    \end{tabular}
+}
+
+
+%%%%%%Entornos

@@ -16,11 +16,20 @@
 \usepackage{forloop}
 \usepackage{titlesec}
 \usepackage{hyperref}
+%Fuente Arial
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+%\setmainfont{Arial}
 %\usepackage{enumitem}%enumerado por letras
 %\renewcommand{\theenumi}{\Alph{enumi}}
 \newcommand{\tabitem}{~\llap{\textbullet}~~} %Comando para items dentro de tablas
 \newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
 \newcommand{\tab}[1]{\hspace{.2\textwidth}\rlap{#1}}
+
+%\titleformat{\section}[block]{\bfseries}{\thesection.}{1em}{} 
+%\titleformat{\subsection}[block]{\hspace{2em}}{\thesubsection}{1em}{}
+%\titleformat{\subsection}[runin]{\itshape}{\thesubsection.}{3pt}{\space}[.]
+%\titlespacing*{\subsection}{\parindent}{1ex}{1em}
 
 %%Espaciado en paragraph
 %\usepackage{parskip}
@@ -35,28 +44,93 @@
 
 % # SECCION CONTENIDOS:
 
-%\unprotect
-%\definehead [UNIDAD] [chapter]
-%\definehead [CAPITULO] [section]
-%\definehead [TEMA] [section]
+%definiendo propio Parrafo
+\newcommand\Parrafo{\@startsection{paragraph}{4}{\TemaIndent}%
+  {3.25ex \@plus1ex \@minus.2ex}%
+  {-1em}%
+  {\raggedsection\normalfont\sectfont\nobreak\size@paragraph}%
+}
 
-%definiendo Capitulo I, Capitulo II, Capitulo III, ...
-%\newlist{capitulo}{enumerate}{1}
-%\setlist[capitulo, 1]{label = Capítulo \Roman*:}
+% UNIDAD
+%
+% definiendo un propio sectioning
 
-\titleclass{\scenario}{straight}[\chapter]
-\newcounter{scenario}
+\newlength\UnidadIndent
+\setlength\UnidadIndent{0.7cm}
 
-\setcounter{secnumdepth}{2}
+\newcommand\Unidad{\@startsection {Unidad}{1}{\UnidadIndent}%
+                                {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                {2.3ex \@plus.2ex}%
+                                {\normalfont\medium\bfseries}}
+\newcommand{\Unidadmark}[1]{}
+\newcounter{Unidad}
 
-\titleformat{\scenario}
-  {\sffamily\normalsize\bfseries}{}{0em}{Scenario \thescenario:~}
-\titlespacing*{\scenario}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+%comando para definir nombres del seccionamiento customizado
+\newcommand{\nextUnidad}[1]{
+    \ifnum\value{Unidad}=3\Unidad{Cuarta Unidad: #1}\fi
+    \ifnum\value{Unidad}=2\Unidad{Tercera Unidad: #1}\fi
+    \ifnum\value{Unidad}=1\Unidad{Segunda Unidad: #1}\fi
+    \ifnum\value{Unidad}=0\Unidad{Primera Unidad: #1}\fi
+}
 
-%\makeatletter
-%  \def\toclevel@scenario{3}
-%  \def\l@scenario{\@dottedtocline{3}{3.8em}{3.2em}}
-%\makeatother
+\renewcommand{\theUnidad}{}
+
+%*****************************
+
+
+% CAPITULO
+%
+
+\newlength\CapituloIndent
+\setlength\CapituloIndent{1.5cm}
+
+% definiendo un propio sectioning
+\newcommand\Capitulo{\@startsection {Capitulo}{1}{\CapituloIndent}%
+                                {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                {2.3ex \@plus.2ex}%
+                                {\normalfont\medium\bfseries}}
+\newcommand{\Capitulomark}[1]{}
+\newcounter{Capitulo}
+
+%comando para definir nombres del seccionamiento customizado
+\newcommand{\nextCapitulo}[1]{
+    \Capitulo{#1}
+}
+
+\renewcommand{\theCapitulo}{Capítulo \Roman{Capitulo}.-}
+
+%*****************************
+
+% TEMA
+%
+% definiendo un propio sectioning
+
+\newlength\TemaIndent
+\setlength\TemaIndent{2cm}
+
+\newcommand\Tema{\@startsection {Tema}{1}{\TemaIndent}%
+                                {-1.5ex \@plus -1ex \@minus -.2ex}%
+                                {1.3ex \@plus.2ex}%
+                                {\normalfont\medium}}
+\newcommand{\Temamark}[1]{}
+\newcounter{Tema}
+
+%comando para definir nombres del seccionamiento customizado
+\newcommand{\nextTema}[2]{
+        \Tema{#1} \Parrafo{#2}
+}
+
+\renewcommand{\theTema}{Tema \arabic{Tema}:}
+
+%*****************************
+
+
+
+
+
+
+
+
 
 
 %%% Aquí se dibuja el rectángulo del margen
@@ -84,15 +158,15 @@
 %%%%
 %%manejo de márgenes
 %\usepackage[pass,showframe,margin=0.5in]{geometry}%despues se borrara
+
 \usepackage[pass]{geometry}
-
-
 	\addtolength{\oddsidemargin}{-.875in}
     \addtolength{\evensidemargin}{-.875in}
 	\addtolength{\textwidth}{1.75in}
 
 	\addtolength{\topmargin}{-.875in}
 	\addtolength{\textheight}{1.75in}
+	
 %%%% izquierda derecha 0.79inch
 %%% .39inch
 %\usepackage[paperwidth=16cm,paperheight=24cm]{geometry}
@@ -103,20 +177,22 @@
 \sectionfont{\fontsize{12}{15}\selectfont}%tamaño de fuente section
 \pagestyle{plain}
 %%Impresión de la fecha
-\newcommand{\fecha}{\noindent FECHA: \today }
+\newcommand{\fecha}{\vspace{.5cm} \noindent \textbf{FECHA:} \today }
 %%%%
 %presión de firma
 %\nombreProfesor
-\newcommand{\linea}[1]{\smash{\begin{tabular}{c} \hline #1 \\  \end{tabular}}}
+\newcommand{\linea}[1]{\smash{\begin{center}\begin{tabular}{l} \hline #1 \end{tabular}
+\hspace*{-\tabcolsep}\end{center}}}
+
+
 \newcommand{\firma}
-    {
-    \begin{center}
+{
     \vspace{2cm}
         %\hline
-            \linea{\nombreProfesor}
-    \end{center}
-  
-    }%%%Im definicón de las macros (entornos) las cajas se borrarán después, sólo es para ver el ámbito de los margenes hasta corregirlos y ubicarlos.
+        
+            \linea{\textbf{\gradoAbreviado\, \nombreProfesor}}
+}
+    %%%Im definicón de las macros (entornos) las cajas se borrarán después, sólo es para ver el ámbito de los margenes hasta corregirlos y ubicarlos.
 %INFORMACIÓN ADMINISTRATIVA
 
 %%Definicion de los comandos para settear variables globales usadas en todo el silabo.
@@ -128,6 +204,9 @@
 }
 \newcommand{\setNombreProfesor}[1]{
     \gdef\nombreProfesor{#1}
+}
+\newcommand{\setGradoProfesorAbreviado}[1]{
+    \gdef\gradoAbreviado{#1}
 }
 
 %%Header del silabo
@@ -218,13 +297,11 @@
     %\mbox{\tabitem Sitemas Operativos}	\\
     %\mbox{\tabitem Seguridad en Computaci\'on}
     %\end{array}$
-    \begin{tabitemize} 
+    \begin{tabitemize}
       \foreachitem\x\in\mylist[]{
         \item \mylist[\xcnt]
       }
     \end{tabitemize}
-    
-    
 }	\\
 
 \hline
@@ -349,7 +426,7 @@
 
 \newenvironment{estrategiasEnsenanza}{
     \renewcommand\thesubsection{\alph{subsection}}
-    \section{Estrategias de Ensenanza}
+    \section{Estrategias de Enseñanza}
 }{
     \renewcommand\thesubsection{\thesection.\arabic{subsection}}
 }
@@ -361,12 +438,15 @@
 }{}
 \newenvironment{formasOrganizacion}{
     \subsection{Formas de organización}
-    \renewcommand\thesubsubsection{\roman{subsubsection}.} 
-}{}
+    \begin{enumerate}[label=\roman*.]
+}{\end{enumerate}}
+\newcommand{\newItemFO}[2]{
+    \item \textbf{#1}: #2
+}
 \newenvironment{programacion}{
     \subsection{Programación de actividades que integren investigación formativa y responsabilidad social}
-    \renewcommand\thesubsubsection{\roman{subsubsection}.} 
-}{}
+    \begin{enumerate}[label=\roman*.]
+}{\end{enumerate}}
 \newenvironment{segumientoAprendizaje}{
    \subsection{Seguimiento del Aprendizaje}
 }{}
@@ -386,7 +466,7 @@
     \end{tabular} 
     }
 %Fundamentación   
-\newenvironment{argue}
+\newenvironment{fundamentacion}
     {
     \section{FUNDAMENTACIÓN (JUSTIFICACIÓN)}
     \begin{tabular}{|p{0.9\textwidth}|}
@@ -445,7 +525,8 @@
 
 
 \newenvironment{bibliografia}{%aun no soporta texto externo sobre los items
-\section*{BIBLIOGRAFIA}
+\vspace{.5cm}
+\paragraph{BIBLIOGRAF\'IA}
   \begin{enumerate}[a),leftmargin=1.4cm]% whatever you want the list to be
 }{%
   \end{enumerate}
