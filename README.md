@@ -6,7 +6,8 @@ Contenido:
 dufa.tex
 silabus.sty
 ```
-### INFORMACION ACADEMICA
+
+![Color](https://github.com/RGiskard/SilaboCSUNSA/blob/master/imgReadme/dufa/informacionAcademica.png)
 
 ```latex
 \setPeriodoAcademico{2018-B}
@@ -30,7 +31,8 @@ silabus.sty
 
 ```
 
-### INFORMACION ADMINISTRATIVA 
+![Color](https://github.com/RGiskard/SilaboCSUNSA/blob/master/imgReadme/dufa/informacionAdministrativa.png)
+
 ```latex
 \administrativaTable
 {Doctor} %Grado académico del profesor
@@ -48,14 +50,17 @@ silabus.sty
 {-} %Aula de clase - viernes
 ```
 
-### FUNDAMENTACION (JUSTIFICACIÓN) 
+![Color](https://github.com/RGiskard/SilaboCSUNSA/blob/master/imgReadme/dufa/fundamentacion.png)
+
 ```latex
 \begin{fundamentacion}
 El curso de Base de Datos I tiene como propósito desarrollar en el estudiante la capacidad de implementar una base de datos empleando adecuadamente los fundamentos de normalización, el modelo entidad-relación y el diseño lógico, basado en los requerimientos de información de una organización.
 \end{fundamentacion}
 ```
 
-### SUMILLA DEL CURSO
+
+![Color](https://github.com/RGiskard/SilaboCSUNSA/blob/master/imgReadme/dufa/sumilla.png)
+
 ```latex
 \begin{sumilla}
 \item uno
@@ -63,7 +68,9 @@ El curso de Base de Datos I tiene como propósito desarrollar en el estudiante l
 \end{sumilla}
 ```
 
-### COMPETENCIAS DE LA ASIGNATURA
+
+![Color](https://github.com/RGiskard/SilaboCSUNSA/blob/master/imgReadme/dufa/competenciasAsignaturas.png)
+
 ```latex
 \begin{competenciasAsignatura}
 \item this is item a
@@ -72,7 +79,8 @@ El curso de Base de Datos I tiene como propósito desarrollar en el estudiante l
 \end{competenciasAsignatura}
 ```
 
-### CONTENIDOS
+
+![Color](https://github.com/RGiskard/SilaboCSUNSA/blob/master/imgReadme/dufa/contenidos.png)
 
 ```latex
 \begin{contenidos}
@@ -98,7 +106,8 @@ El curso de Base de Datos I tiene como propósito desarrollar en el estudiante l
 
 ```
 
-### ESTRATEGIAS DE ENSEÑANZA
+
+![Color](https://github.com/RGiskard/SilaboCSUNSA/blob/master/imgReadme/dufa/estrategiasEnseñanza.png)
 
 ```latex
 \begin{estrategia. ContenidossEnsenanza}
@@ -127,7 +136,8 @@ El curso de Base de Datos I tiene como propósito desarrollar en el estudiante l
 \end{estrategiasEnsenanza}
 ```
 
-### CRONOGRAMA ACADEMICO
+
+![Color](https://github.com/RGiskard/SilaboCSUNSA/blob/master/imgReadme/dufa/cronogramaAcademico.png)
 
 ```latex
 \begin{cronogramaAcademico}
@@ -151,7 +161,8 @@ El curso de Base de Datos I tiene como propósito desarrollar en el estudiante l
 \end{cronogramaAcademico}
 
 ```
-### ESTRATEGIAS DE EVALUACIÓN
+
+![Color](https://github.com/RGiskard/SilaboCSUNSA/blob/master/imgReadme/dufa/estrategiasEvaluacion.png)
 
 ```latex
 \begin{estrategiasEvaluacion}
@@ -177,7 +188,8 @@ El curso de Base de Datos I tiene como propósito desarrollar en el estudiante l
 \end{estrategiasEvaluacion}
 
 ```
-### REQUISITOS DE APROBACIÓN
+
+![Color](https://github.com/RGiskard/SilaboCSUNSA/blob/master/imgReadme/dufa/RequisitosAprobacion.png)
 
 ```latex
 \begin{requisitosAprobacion}
@@ -188,8 +200,7 @@ alumno que no se haga presente en el día establecido, perderá su derecho a rec
 
 ```
 
-### BIBLIOGRAFIA
-
+![Color](https://github.com/RGiskard/SilaboCSUNSA/blob/master/imgReadme/dufa/bibliografia.png)
 ```latex
 \begin{bibliografia}
 \item Korth, H. Saenz, F. Silberschatz. A. Sudarshan, S. Database System Concepts (6th ed.).
@@ -197,6 +208,13 @@ alumno que no se haga presente en el día establecido, perderá su derecho a rec
 \item Kroenke D. Auer D. Database Processing: Fundamentals, Design and Implementation
 (14th ed.). 2015.
 \end{bibliografia}
+
+```
+### FECHA Y FIRMA
+
+![Color](https://github.com/RGiskard/SilaboCSUNSA/blob/master/imgReadme/dufa/fechaFirma.png)
+
+```latex
 
 \fecha
 
