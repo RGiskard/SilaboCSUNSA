@@ -33,12 +33,26 @@
 \newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
 \newcommand{\tab}[1]{\hspace{.2\textwidth}\rlap{#1}}
 
+%Tamaño de estático de las tablas
+\gdef \tableSize{15.5cm}
+
 %Columnas para tabularx
 \newcolumntype{b}{X}
 \newcolumntype{s}{>{\hsize=.5\hsize}X}
 
 \titleformat*{\section}{\large\bfseries}
+%%
+%% alineado derecha izquierda
+\gdef \irDerecha{1cm}
+\gdef \irIzquierda{-1cm}
+\gdef \margenItemderecha{2cm}
+%%%identación derecha
+\newenvironment{indentacion}[1]{%
 
+\setlength{\parindent}{#1}
+}{%
+\setlength{\parindent}{\mystoreparindent}
+}
 
 %\titleformat{\section}[block]{\bfseries}{\thesection.}{1em}{} 
 %\titleformat{\subsection}[block]{\hspace{2em}}{\thesubsection}{1em}{}
@@ -75,112 +89,131 @@
 %%Comando que gerena la tabla del curso
 \newcommand{\curso}[3]{
     \section{\normalfont Nombre del Curso:}
-        \begin{tabularx}{\textwidth}{|s|b|s|}
+    \begin{indentacion}{\irDerecha}
+        \begin{tabularx}{\tableSize}{|s|b|s|}
             \hline
             \textbf{Código} & \textbf{Nombre} & \textbf{Semestre} \\ \hline
             #1 & #2 & #3 \\ \hline
         \end{tabularx}
+    \end{indentacion}    
 }
 
 %%Comando que genera la tabla de creditos y horas
 \newcommand{\creditosHoras}[6]{
     \section{\normalfont Créditos y horas semanal:}
-        \begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|Y|}
+    \begin{indentacion}{\irDerecha}    
+        \begin{tabularx}{\tableSize}{|Y|Y|Y|Y|Y|Y|}
             \hline
             \textbf{N\textsuperscript{o}\xspace Créditos} & \textbf{H. Teoría} & \textbf{H. Práctica} & \textbf{H. T-P} & \textbf{H. Lab.} & \textbf{T. Horas} \\ \hline
             #1 & #2 & #3 & #4 & #5 & #6 \\ \hline
         \end{tabularx}
-    
+    \end{indentacion}
 }
 
 %%Comando que gerenra al isntructor
 \newcommand{\instructor}[1]{
     \section{\normalfont Nombre del instructor o Coordinador del Curso:}
-    \begin{tabularx}{\textwidth}{|X|}
+    \begin{indentacion}{\irDerecha}
+    \begin{tabularx}{\tableSize}{|X|}
         \hline
         \\
         #1 \\  \\ \hline
     \end{tabularx}
+    \end{indentacion}
 }
 
 %%Comando que genera el libro principal
 
 \newcommand{\libro}[3]{
     \section{\normalfont Libro texto: título, autor, año:}
-    \begin{tabularx}{\textwidth}{|Y|Y|Y|}
+    \begin{indentacion}{\irDerecha}
+    \begin{tabularx}{\tableSize}{|Y|Y|Y|}
         \hline
         \textbf{Título} & \textbf{Autor} & \textbf{Año} \\ \hline
         #1 & #2 & #3 \\ \hline
     \end{tabularx}
+    \end{indentacion}
 }
 
 %%Comando que genera el libro secundario
 \newcommand{\libroSecundario}[3]{
-     \begin{enumerate}[label=\alph*.]
+     \begin{enumerate}[label=\alph*.,leftmargin=\margenItemderecha]
          \item Otros materiales suplementarios
      \end{enumerate}
-     \begin{tabularx}{\textwidth}{|Y|Y|Y|}
+     \begin{indentacion}{\irDerecha}
+     \begin{tabularx}{\tableSize}{|Y|Y|Y|}
         \hline
         \textbf{Título} & \textbf{Autor} & \textbf{Año} \\ \hline
         #1 & #2 & #3 \\ \hline
     \end{tabularx}
+    \end{indentacion}
 }
 
 
 %%Definición de entornos y commandos para la información del curso
 \newenvironment{datosCurso}{
     \section{\normalfont Información específica del curso}
-    \begin{enumerate}[label=\alph*.]
+    \begin{enumerate}[label=\alph*.,leftmargin=\margenItemderecha]
 }{\end{enumerate}}
 \newenvironment{descripcion}{
     \item Breve descripción del contenido del curso: \par
+    \begin{indentacion}{\irIzquierda}
     \begin{tabular}{|p{15cm}|}
     \hline
 }{
     \\ \hline
     \end{tabular}
+    \end{indentacion}
 }
 \newenvironment{requisitos}{
     \item Requisitos previos o correquisitos: \par
+    \begin{indentacion}{\irIzquierda}
     \begin{tabular}{|p{15cm}|}
     \hline
     \\
 }{
     \\ \hline
     \end{tabular}
+    \end{indentacion}
 }
 \newcommand{\newItemReq}[2]{
     #1 - #2 \\
 }
 \newcommand{\ObligatorioElectivo}[2]{
     \item Obligatorio o Electivo: \par
-    \begin{tabularx}{15.5cm}{|b|s|b|s|}
+     \begin{indentacion}{\irIzquierda}
+    \begin{tabularx}{\tableSize}{|b|s|b|s|}
     \hline
     Obligatorio & #1 & Electivo & #2 \\ \hline
     \end{tabularx}
+    \end{indentacion}
 }
 
 \newenvironment{objetivosCurso}{
     \section{\normalfont Objetivos específicos del curso}
-    \begin{enumerate}[label=\alph*.]
+    \begin{enumerate}[label=\alph*.,leftmargin=\margenItemderecha]
 }{
     \end{enumerate}
 }
 \newenvironment{resultadosEspecificos}{
     \item Resultados específicos de la enseñanza: \par
+    \begin{indentacion}{\irIzquierda}
     \begin{tabular}{|p{15cm}|}
     \hline
 }{
     \\ \hline
     \end{tabular}
+    \end{indentacion}
 }
 \newenvironment{resultadosEstudiante}{
     \item Resultados del estudiante que son abordados por el curso: \par
+    \begin{indentacion}{\irIzquierda}
     \begin{tabular}{|p{15cm}|}
     \hline
 }{
     \\ \hline
     \end{tabular}
+    \end{indentacion}
 }
 
 
@@ -221,12 +254,14 @@
 \newenvironment{ListaTemas}
     {
     \section{\normalfont ListaTemas}
+    \begin{indentacion}{\irDerecha{}}
     \begin{tabular}{|p{15cm}|}
     \hline
     }
     {
         \\ \hline
-        \end{tabular}    
+        \end{tabular}
+        \end{indentacion}
     }
 
 
