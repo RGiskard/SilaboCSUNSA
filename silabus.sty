@@ -1,0 +1,495 @@
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{fancybox}
+\usepackage{tikz}
+\usepackage{blindtext}
+\usepackage{titling}%title options
+\usepackage{lipsum}
+\usepackage{multirow}
+\usepackage[shortlabels]{enumitem}
+\usepackage{listofitems}
+\usepackage[spanish]{babel}
+\usepackage{forloop}
+\usepackage{titlesec}
+\usepackage{hyperref}
+%\usepackage{enumitem}%enumerado por letras
+%\renewcommand{\theenumi}{\Alph{enumi}}
+\newcommand{\tabitem}{~\llap{\textbullet}~~} %Comando para items dentro de tablas
+\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
+\newcommand{\tab}[1]{\hspace{.2\textwidth}\rlap{#1}}
+
+%%Espaciado en paragraph
+%\usepackage{parskip}
+\setlength{\parindent}{5cm}
+
+%definiendo nuevo tipo para ponerlo bonito en un array 
+\newlist{tabitemize}{itemize}{1}
+\setlist[tabitemize]{label=\textbullet,nosep,after=\strut,align=parleft,leftmargin=*,}
+%tipo de columna para el array
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1\textwidth\tabcolsep-0.6pt}}
+
+
+% # SECCION CONTENIDOS:
+
+%\unprotect
+%\definehead [UNIDAD] [chapter]
+%\definehead [CAPITULO] [section]
+%\definehead [TEMA] [section]
+
+%definiendo Capitulo I, Capitulo II, Capitulo III, ...
+%\newlist{capitulo}{enumerate}{1}
+%\setlist[capitulo, 1]{label = Capítulo \Roman*:}
+
+\titleclass{\scenario}{straight}[\chapter]
+\newcounter{scenario}
+
+\setcounter{secnumdepth}{2}
+
+\titleformat{\scenario}
+  {\sffamily\normalsize\bfseries}{}{0em}{Scenario \thescenario:~}
+\titlespacing*{\scenario}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+%\makeatletter
+%  \def\toclevel@scenario{3}
+%  \def\l@scenario{\@dottedtocline{3}{3.8em}{3.2em}}
+%\makeatother
+
+
+%%% Aquí se dibuja el rectángulo del margen
+
+\usepackage{background}
+\usetikzlibrary{calc}
+\SetBgScale{1}
+\SetBgAngle{0}
+\SetBgColor{black}
+\SetBgOpacity{1}
+\SetBgContents{
+\begin{tikzpicture}[overlay,remember picture]
+\draw [line width=1pt]
+    ($ (current page.north west) + (2cm,-2cm) $)
+    rectangle
+    ($ (current page.south east) + (-2cm,2cm) $); 
+\end{tikzpicture}
+}
+
+\posttitle{}
+
+%%%Punto para las secciones
+\usepackage{secdot}
+\sectiondot{subsection}
+%%%%
+%%manejo de márgenes
+%\usepackage[pass,showframe,margin=0.5in]{geometry}%despues se borrara
+\usepackage[pass]{geometry}
+
+
+	\addtolength{\oddsidemargin}{-.875in}
+    \addtolength{\evensidemargin}{-.875in}
+	\addtolength{\textwidth}{1.75in}
+
+	\addtolength{\topmargin}{-.875in}
+	\addtolength{\textheight}{1.75in}
+%%%% izquierda derecha 0.79inch
+%%% .39inch
+%\usepackage[paperwidth=16cm,paperheight=24cm]{geometry}
+%\usepackage[a4,frame,center]{crop}
+
+%%Para controlar tamaño de fuente section
+\usepackage{sectsty}
+\sectionfont{\fontsize{12}{15}\selectfont}%tamaño de fuente section
+\pagestyle{plain}
+%%Impresión de la fecha
+\newcommand{\fecha}{\noindent FECHA: \today }
+%%%%
+%presión de firma
+%\nombreProfesor
+\newcommand{\linea}[1]{\smash{\begin{tabular}{c} \hline #1 \\  \end{tabular}}}
+\newcommand{\firma}
+    {
+    \begin{center}
+    \vspace{2cm}
+        %\hline
+            \linea{\nombreProfesor}
+    \end{center}
+  
+    }%%%Im definicón de las macros (entornos) las cajas se borrarán después, sólo es para ver el ámbito de los margenes hasta corregirlos y ubicarlos.
+%INFORMACIÓN ADMINISTRATIVA
+
+%%Definicion de los comandos para settear variables globales usadas en todo el silabo.
+\newcommand{\setPeriodoAcademico}[1]{
+    \gdef\periodoAcademico{#1}
+}
+\newcommand{\setNombreAsignatura}[1]{
+    \gdef\nombreAsignatura{#1}
+}
+\newcommand{\setNombreProfesor}[1]{
+    \gdef\nombreProfesor{#1}
+}
+
+%%Header del silabo
+\newcommand{\sylabusHeader}{
+    \noindent\begin{minipage}{\textwidth}% adapt widths of minipages to your needs
+    \vspace{2mm}
+    \begin{center}
+        \includegraphics[width=6cm,height=2cm]{./images/image001.png}    
+    \end{center}
+    \end{minipage}
+    \begin{center}
+        \begin{small}
+        UNIVERSIDAD NACIONAL DE SAN AGUSTÍN DE AREQUIPA \\
+        FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS \\
+        DEPARTAMENTO ACADÉMICO DE INGENIERÍA DE SISTEMAS E INFORMÁTICA \\
+        SÍLABO \periodoAcademico
+        \end{small}
+    \end{center}
+    \paragraph{ASIGNATURA: \nombreAsignatura}  
+}
+
+%Definicion del comando para la sección de información académica
+\newcommand{\academicaTable}[9]{
+    \gdef\escuela{#1}
+    \gdef\codigoAsignatura{#2}
+    \gdef\semestre{#3}
+    \gdef\carateristicas{#4}
+    \gdef\duracion{#5}
+    \gdef\horasTeoricas{#6}
+    \gdef\horasPracticas{#7}
+    \gdef\horasSeminarios{#8}
+    \gdef\horasLaboratorio{#9}
+    \academica
+}
+\newcommand{\academica}[3]{
+    \section{INFORMACIÓN ACADÉMICA}
+    \setsepchar{,}
+    \readlist\mylist{#3}
+    \begin{tabular}{|l|ll|}
+\hline
+\multicolumn{1}{|l|}{Periodo académico}&	\multicolumn{2}{|l|}{\periodoAcademico}\\
+\hline
+\multicolumn{1}{|l|}{Escuela profesional}&	\multicolumn{2}{|l|}{\escuela}\\
+\hline
+\multicolumn{1}{|l|}{Código de la asignatura}&	\multicolumn{2}{|l|}{$\codigoAsignatura$}	\\
+\hline
+\multicolumn{1}{|l|}{Nombre de la asignatura}&	\multicolumn{2}{|l|}{\nombreAsignatura}	\\
+\hline
+\multicolumn{1}{|l|}{Semestre} & \multicolumn{2}{|l|}{\semestre} \\
+\hline
+\multicolumn{1}{|l|}{Características} & \multicolumn{2}{|l|}{\carateristicas} \\
+\hline
+\multicolumn{1}{|l|}{Duración}&	\multicolumn{2}{|l|}{\duracion}	\\
+\hline
+%\multicolumn{1}{|l|}{Condición}&	\multicolumn{1}{|l}{Obligatorio: X}&	\multicolumn{1}{l|}{Electivo:}	\\
+%\hline
+\multirow{5}{*}{Número de horas}  & \multicolumn{1}{|l|}{Teóricas:}&	\multicolumn{1}{|l|}{$\horasTeoricas$}		\\
+\cline{2-3}
+&	\multicolumn{1}{|l|}{Prácticas:}&	\multicolumn{1}{|l|}{$\horasPracticas$}	\\
+\cline{2-3}
+&	\multicolumn{1}{|l|}{Seminarios}&	\multicolumn{1}{|l|}{$\horasSeminarios$}	\\
+\cline{2-3}
+&	\multicolumn{1}{|l|}{Laboratorio}&	\multicolumn{1}{|l|}{$\horasLaboratorio$}	\\
+\cline{2-3}
+&	\multicolumn{1}{|l|}{Teórico-pr\'actico}&	\multicolumn{1}{|l|}{$#1$}	\\
+\cline{2-3}
+&	\multicolumn{1}{|l}{}&	\multicolumn{1}{l|}{}	\\
+\hline
+\multicolumn{1}{|l|}{Número de Créditos} & \multicolumn{2}{|l|}{$#2$} \\
+\hline
+\multicolumn{1}{|l|}{Prerrequisitos}&
+
+\multicolumn{2}{|P{0.3}|}{
+    %$\begin{array}{l}
+    %\foreachitem\x\in\mylist[]{
+    %    \ifnum\listlen\mylist[]=\xcnt\relax
+    %        \mbox{\tabitem \mylist[\xcnt]}
+    %    \else
+    %        \mbox{\tabitem \mylist[\xcnt]} \\ 
+    %    \fi
+    %    \fi
+    %}
+    %\end{array}$
+    %$\begin{array}{l}
+    %\foreachitem\x\in\mylist[]{
+    %    \mbox{\tabitem \mylist[\xcnt]} \\
+    %
+    %\mbox{\tabitem Sitemas Operativos}	\\
+    %\mbox{\tabitem Seguridad en Computaci\'on}
+    %\end{array}$
+    \begin{tabitemize} 
+      \foreachitem\x\in\mylist[]{
+        \item \mylist[\xcnt]
+      }
+    \end{tabitemize}
+    
+    
+}	\\
+
+\hline
+\end{tabular}
+
+}
+
+\newcommand{\administrativaTable}[9]{
+    \gdef\gradoAcademico{#1}
+    \gdef\departamentoAcademico{#2}
+    \gdef\numeroHoras{#3}
+    \gdef\horasLunes{#4}
+    \gdef\horasMartes{#5}
+    \gdef\horasMiercoles{#6}
+    \gdef\horasJueves{#7}
+    \gdef\horasViernes{#8}
+    \gdef\aulaLunes{#9}
+    \administrativa
+}
+
+\newcommand{\administrativa}[4]{
+    \section{INFORMACIÓN ADMINISTRATIVA}
+    %\begin{center}
+    \begin{tabular}{|l|lllll|}
+    \hline
+    \multicolumn{1}{|l|}{Profesor}&	\multicolumn{5}{|l|}{\nombreProfesor}\\
+    \hline
+    \multicolumn{1}{|l|}{Grado Académico}&	\multicolumn{5}{|l|}{\gradoAcademico}\\
+    \hline
+    \multicolumn{1}{|p{2cm}|}{Departamento Académico}&	\multicolumn{5}{|l|}{\departamentoAcademico}\\
+    \hline
+    \multicolumn{1}{|l|}{Horas}&	\multicolumn{5}{|l|}{\numeroHoras}	\\
+    \hline
+    
+    \multirow{2}{3cm}{Horas Total Semanal: Hrs.} & 
+    \multicolumn{1}{|l|}{Lunes} &
+    \multicolumn{1}{|l|}{Martes} &
+    \multicolumn{1}{|l|}{Miércoles} &
+    \multicolumn{1}{|l|}{Jueves} &
+    \multicolumn{1}{|l|}{Viernes} \\ \cline{2-6}
+    
+    % BUG # 123
+    % SE SUPERPONE EL TEXTO CON "Aula"
+    % ******************************************************    
+    
+    & \multicolumn{1}{|l|}{\horasLunes} &
+    \multicolumn{1}{|l|}{\horasMartes} &
+    \multicolumn{1}{|l|}{\horasMiercoles} & 
+    \multicolumn{1}{|l|}{\horasJueves} & 
+    \multicolumn{1}{|l|}{\horasViernes} \\ \hline
+    
+    \multirow{1}{*}{Aula} &
+    \multicolumn{1}{|l|}{\aulaLunes} &
+    \multicolumn{1}{|l|}{#1} &
+    \multicolumn{1}{|l|}{#2} &
+    \multicolumn{1}{|l|}{#3}& 
+    \multicolumn{1}{|l|}{#4} \\
+    \hline
+    \end{tabular}
+    %\end{center}
+}
+
+%% Enviroment para crear el cronogramaAcadémico
+\newenvironment{cronogramaAcademico}
+    {
+    \section{CRONOGRAMA ACADÉMICO}
+    \begin{tabular}{|c|l|l|c|}
+    \hline
+    \textbf{Semana} & \multicolumn{1}{|p{6.5cm}|}{\textbf{\raggedright Tema / Evaluación}} & \multicolumn{1}{|p{4.5cm}|}{\textbf{\raggedright Docente}} & \textbf{\% Acumulado} \\ \hline
+    }
+    { 
+    \end{tabular} 
+    }
+\newcounter{ItemsCA}
+\newcommand{\newItemCA}[3]{
+    \stepcounter{ItemsCA}
+    \arabic{ItemsCA} & \multicolumn{1}{|p{6.5cm}|}{\raggedright #1} & \multicolumn{1}{|p{4.5cm}|}{\raggedright #2} & $#3$ \\ \hline
+}
+
+
+\newenvironment{estrategiasEvaluacion}{%aun no soporta texto externo sobre los items
+ \section{ESTRATEGIAS DE EVALUACIÓN}
+}{}  
+\newenvironment{evaluacionContinua}{
+    \subsection{Evaluación Continua}
+    \noindent
+}{}
+\newenvironment{evaluacionPeriodica}{
+    \subsection{Evaluación Periódica}
+    \begin{itemize}
+}{
+    \end{itemize}
+}
+\newenvironment{tipoEvaluacion}{
+  \subsection{Tipo de Evaluación} 
+  \noindent
+}{}
+\newenvironment{instrumentosEvaluacion}{
+  \subsection{Instrumentos de Evaluación} 
+  \noindent
+}{}
+\newcommand{\newItemEP}[2]{
+    \item \itab{#1} \tab{#2}
+}
+%%Cronograma de evaluación que va dentro de estrategias de evaluación
+\newenvironment{cronogramaEvaluacion}{
+    \subsection{Cronograma}
+    \begin{tabular}{|l|l|l|l|l|}
+        \hline
+        \multirow{2}{*}{\textbf{Evaluación}} & \textbf{Fecha de} & \textbf{Examen} & \textbf{Evaluación} & \textbf{Ponderación} &
+        & \textbf{Evaluación} & \textbf{Teoría} & \textbf{Continua} & \textbf{porcentual} \\ \hline
+    }
+    {
+        \end{tabular}
+    }
+\newcounter{ItemsCE}
+\newcommand{\newItemCE}[4]{
+    \stepcounter{ItemsCE}
+    Evaluación \arabic{ItemsCE} & #1 & #2 & #3 & #4 \\ \hline
+}
+
+
+\newenvironment{estrategiasEnsenanza}{
+    \renewcommand\thesubsection{\alph{subsection}}
+    \section{Estrategias de Ensenanza}
+}{
+    \renewcommand\thesubsection{\thesection.\arabic{subsection}}
+}
+\newenvironment{metodos}{
+    \subsection{Métodos}
+    \noindent
+}{}
+\newenvironment{medios}{
+   \subsection{Medios} 
+   \noindent
+}{}
+\newenvironment{formasOrganizacion}{
+    \subsection{Formas de organización}
+    \renewcommand\thesubsubsection{\roman{subsubsection}.} 
+}{}
+\newenvironment{programacion}{
+    \subsection{Programación de actividades que integren investigación formativa y responsabilidad social}
+    \renewcommand\thesubsubsection{\roman{subsubsection}.} 
+}{}
+\newenvironment{segumientoAprendizaje}{
+   \subsection{Seguimiento del Aprendizaje}
+   \noindent
+}{}
+
+
+
+
+
+\newenvironment{information}
+    {
+    \section{INFORMACIÓN ADMINISTRATIVA}
+    \begin{tabular}{|p{0.9\textwidth}|}
+    \hline\\
+    }
+    { 
+    \\\\\hline
+    \end{tabular} 
+    }
+%Fundamentación   
+\newenvironment{argue}
+    {
+    \section{FUNDAMENTACIÓN (JUSTIFICACIÓN)}
+    \begin{tabular}{|p{0.9\textwidth}|}
+    \hline\\
+    }
+    { 
+    \\\\\hline
+    \end{tabular} 
+    }
+    
+% *******
+% Contenidos
+% *******
+
+\newenvironment{contenidos}
+    {
+    \section{Contenidos}
+    
+    
+    
+    }
+
+%
+% END CONTENIDOS
+%
+
+%SUMILLA DEL CURSO
+
+
+\newenvironment{sumilla}{%aun no soporta texto externo sobre los items
+ \section{SUMILLA DEL CURSO}
+  \begin{list}{}{}% whatever you want the list to be
+  \let\olditem\item
+  \renewcommand\item{\olditem $\bullet$ }
+}{%
+  \end{list}
+}  
+%competencias
+\newenvironment{competenciasAsignatura}{%aun no soporta texto externo sobre los items
+ \section{COMPETENCIAS DE LA ASIGNATURA:}
+  \begin{enumerate}[a),leftmargin=1.4cm]% whatever you want the list to be
+}{%
+  \end{enumerate}
+}  
+
+%%%Lista de y enumerates
+
+%requisitos aprobación
+\newenvironment{requisitosAprobacion}{%aun no soporta texto externo sobre los items
+ \section{REQUISITOS DE APROBACIÓN.}
+  \begin{enumerate}[a),leftmargin=1.4cm]% whatever you want the list to be
+}{%
+  \end{enumerate}
+}  
+
+
+
+\newenvironment{bibliografia}{%aun no soporta texto externo sobre los items
+\section*{BIBLIOGRAFIA}
+  \begin{enumerate}[a),leftmargin=1.4cm]% whatever you want the list to be
+}{%
+  \end{enumerate}
+} 
+    
+% :'v :( (=)
+
+
+%\begin{tabular}{|l|l|l|l|l|}
+%\hline
+%multicolumn{1}{|l|}{Docente}&	\multicolumn{1}{|l|}{$\begin{array}{l}\mbox{Grado}	\\	\mbox{académico}	\end{array}$}&	\multicolumn{1}{|l|}{$\begin{array}{l}\mbox{Dpto.}	\\	\mbox{Académico}	\end{array}$}&	\multicolumn{1}{|l|}{$\begin{array}{l}\mbox{Total de}	\\	\mbox{horas}	\end{array}$}&	\multicolumn{1}{|l|}{Horario/actividad}	\\
+%\hline
+%
+%\multicolumn{1}{|p{2cm}|}{\raggedright Johnny Bravo de las Casas Rosales}&	\multicolumn{1}{|p{2cm}|}{\raggedright Magíster}&	\multicolumn{1}{|p{2cm}|}{\raggedright Ingeniería de sistemas e informática}&	\multicolumn{1}{|p{1.5cm}|}{\raggedright 5 horas}&	\multicolumn{1}{|p{5cm}|}{
+
+%\tabitem Viernes 8:50-10:30/Laboratorio \tab
+%\tabitem Viernes 14:00-16:30/Laboratorio \tab
+%\tabitem Lunes 11:30-14:30/Teoría } \\
+
+%\hline
+%\end{tabular}
+
+
+
+
+%$\begin{array}{l}\mbox{Ingen erade}	\\	\mbox{Sstemas e}	\\	\mbox{Informát ca}	\end{array}$
+%$\begin{array}{l}\mbox{Vernes 8:50-10:30/Laboratoro}	\\	\mbox{Vernes 14:00-16:30/Laboratoro}	\end{array}$
+
+% hola xd chris
+% ahí esta
+% es con p
+%
+%
+
+
+%\newcounter{x}
+%\begin{cronograma}
+%\begin{tabular}{|l|l|l|l|}
+%Semana & Tema / Evaluación & Docente & \% Acumulado \\ \hline
+%\forloop{x}{0}{\value{x}<5}{
+%    \arabic{x} & -- & Profesor1 & 10 \\ \hline
+%}
+%\end{tabular}
+%\end{cronograma}
