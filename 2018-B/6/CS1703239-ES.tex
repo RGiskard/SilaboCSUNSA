@@ -9,13 +9,13 @@
 %%Setear variables
 \setPeriodoAcademico{2018-B}
 \setNombreAsignatura{Sistemas Operativos}
-\setNombreProfesor{}
-\setGradoProfesorAbreviado{}
+\setNombreProfesor{Roxana Flores Quispe}
+\setGradoProfesorAbreviado{Dra.}
 \sylabusHeader
 
 \academicaTable
 {Ciencia de la Computación} %Escuela Profesional
-{CS1703239} %Código de la asignatura
+{1003239} %Código de la asignatura
 {6$^{to}$ Semestre.} %Número del semestre
 {Semestral} %Características
 {17 Semanas} %Duración
@@ -23,50 +23,40 @@
 {2 HP} %Número de horas prácticas
 {0} %Número de horas seminarios
 {2 HL}  %Número de horas laboratorio
-{2} %Número de horas Teórico-práctico
-{4} %Número de créditos
-{CS1702117} % Prerrequisitos (separados por comas)
+{0} %Número de horas Teórico-práctico
+{5} %Número de créditos
+{1702117} % Prerrequisitos (separados por comas)
 
 \administrativaTable
-{Doctor} %Grado académico del profesor
+{Doctora} %Grado académico del profesor
 {Ingeniería de Sistemas e Informática} %Departamento académico
 {6} %Número de horas totales
 {2} %Número de horas - lunes
 {-} %Número de horas - martes
-{2} %Número de horas - miercoles
-{2} %Número de horas - jueves
+{4} %Número de horas - miercoles
+{-} %Número de horas - jueves
 {-} %Número de horas - viernes
-{101} %Aula de clase - lunes
-{-} %Aula de clase - martes
-{101} %Aula de clase - miercoles
-{101} %Aula de clase - jueves
+{-} %Aula de clase - lunes
+{205} %Aula de clase - martes
+{205-301} %Aula de clase - miercoles
+{-} %Aula de clase - jueves
 {-} %Aula de clase - viernes
 
 
 \begin{fundamentacion}
-Un Sistema Operativo es un programa que actúa como intermediario entre el usuario y la máquina.
-
-El propósito de un sistema operativo es proveer un ambiente en que el usuario pueda ejecutar sus aplicaciones.
-
-En este curso se estudiará el diseño del núcleo de los sistemas operativos.
-Además el curso contempla actividades prácticas en donde se resolverán problemas de
-concurrencia y se modificará el funcionamiento de un pseudo Sistema Operativo.
+Este curso tiene por objetivo que el alumno pueda analizar y comprender el funcionamiento de cómo se administran los recursos software y hardware del computador, para que el alumno aplique su pensamiento crítico, creativo e innovador al resolver problemas de su entorno de acuerdo al análisis  respectivo.
 
 \end{fundamentacion}
 
 \begin{sumilla}
-\item \OSOverviewofOperatingSystems
-\item \OSOperatingSystemPrinciples
-\item \OSConcurrency
-\item \OSSchedulingandDispatch
-\item \OSMemoryManagement
-\item \OSSecurityandProtection
-\item \OSVirtualMachines
-\item \OSDeviceManagement
-\item \OSFileSystems
-\item \OSRealTimeandEmbeddedSystems
-\item \OSFaultTolerance
-\item \OSSystemPerformanceEvaluation
+\item FUNDAMENTOS DE LOS SISTEMAS OPERATIVOS 
+\item GESTOR DE ENTRADA / SALIDA 
+\item PROCESOS E HILOS 
+\item CONCURRENCIA Y SINCRONIZACIÓN DE PROCESOS 
+\item PLANIFICACIÓN DE PROCESOS 
+\item GESTOR DE MEMORIA 
+\item GESTOR DEL SISTEMA DE ARCHIVOS 
+
 
 \end{sumilla}
 
@@ -81,238 +71,176 @@ concurrencia y se modificará el funcionamiento de un pseudo Sistema Operativo.
 
 
 %inicio unidad
-\nextUnidad{\OSOverviewofOperatingSystems}
-\nextCapitulo{\OSOverviewofOperatingSystems}
-\nextTema{\OSOverviewofOperatingSystemsTopicRole}
-\nextTema{\OSOverviewofOperatingSystemsTopicFunctionality}
-\nextTema{\OSOverviewofOperatingSystemsTopicMechanisms}
-\nextTema{\OSOverviewofOperatingSystemsTopicDesign}
-\nextTema{\OSOverviewofOperatingSystemsTopicInfluences}
+\nextUnidad{PRINCIPIOS DE LOS SISTEMAS OPERATIVOS Y ENTRADA 
+SALIDA }
+\nextCapitulo{FUNDAMENTOS DE LOS SISTEMAS OPERATIVOS }
+\nextTema{Tema 1:Clase Inaugural: lineamientos del curso.  }
+\nextTema{Introducción }
+\nextTema{Rol y propósitos de los sistemas operativos }
+\nextTema{Historia de los sistemas operativos }
+\nextTema{Estrategias de sistemas operativos }
+\nextTema{Tema 2: Funciones y componentes de los sistemas operativos }
+\nextTema{Tópicos de diseño e implementación }
+\nextTema{Arquitecturas de los sistemas operativos }
+\nextTema{Estructura del computador }
+\nextTema{Interrupciones }
+\nextTema{Estado de usuario/sistemas, protección y transición al kernel }
+
+\nextCapitulo{GESTOR DE ENTRADA / SALIDA}
+\nextTema{Tema 3: Principios de hardware y software }
+\nextTema{Características de los dispositivos de E/S} \nextTema{Dispositivos seriales y paralelos }
+\nextTema{Tema 4: Estrategias de buffering }
+\nextTema{Acceso directo a memoria }
+\nextTema{Tema 5: Planificación de discos }
 
 \cite{silberschatz2012}, \cite{stallings2005}, \cite{tanenbaum2006}, \cite{tanenbaum2001}, \cite{mateu1999} 
 
 
 %inicio unidad
-\nextUnidad{\OSOperatingSystemPrinciples}
-\nextCapitulo{\OSOperatingSystemPrinciples}
-\nextTema{\OSOperatingSystemPrinciplesTopicStructuring}
-\nextTema{\OSOperatingSystemPrinciplesTopicAbstractions}
-\nextTema{\OSOperatingSystemPrinciplesTopicConcepts}
-\nextTema{\OSOperatingSystemPrinciplesTopicThe}
-\nextTema{\OSOperatingSystemPrinciplesTopicDevice}
-\nextTema{\OSOperatingSystemPrinciplesTopicInterrupts}
-\nextTema{\OSOperatingSystemPrinciplesTopicConcept}
+\nextUnidad{PROCESOS E HILOS }
+\nextCapitulo{CONCURRENCIA Y SINCRONIZACIÓN DE PROCESOS }
+\nextTema{Tema 6: Procesos e hilos y sus abstracciones} 
+\nextTema{Estados de un proceso }
+\nextTema{Implementación de procesos e hilos }
+\nextTema{Tema 7: Concurrencia de procesos }
+\nextTema{Sincronización y comunicación }
+\nextTema{Rol de las interrupciones }
+\nextTema{Tema 8: Mecanismos de sincronización de memoria compartida: semáforos, colas de mensajes, tuberías }
+\nextTema{Mecanismos de sincronización de memoria no compartida: sockets} 
+\nextTema{Problemas clásicos de los sistemas operativos}  
+\nextTema{Tema 9: Deadlock }
+\nextTema{Modelo de interbloqueo del sistema} 
+\nextTema{Mecanismos de solución de deadlock} 
 
 \cite{silberschatz2012}, \cite{stallings2005}, \cite{tanenbaum2006}, \cite{tanenbaum2001}, \cite{mateu1999} 
 
 
 %inicio unidad
-\nextUnidad{\OSConcurrency}
-\nextCapitulo{\OSConcurrency}
-\nextTema{\OSConcurrencyTopicStates}
-\nextTema{\OSConcurrencyTopicStructures}
-\nextTema{\OSConcurrencyTopicDispatching}
-\nextTema{\OSConcurrencyTopicTheRole}
-\nextTema{\OSConcurrencyTopicManaging}
-\nextTema{\OSConcurrencyTopicImplementing}
-\nextTema{\OSConcurrencyTopicMultiprocessor}
+\nextUnidad{PLANIFICACION DE PROCESOS  }
+\nextCapitulo{PLANIFICACIÓN DE PROCESOS }
+\nextTema{Tema 10: Análisis de la funcionalidad y características del planificador de procesos en el SO. }
+\nextTema{Tema 11: Planificación preventiva} 
+\nextTema{Planificación no preventiva }
+\nextTema{Tema 12: Políticas de planificación de procesos y hebras} 
+\nextTema{Deadlines} 
+\nextTema{Problemas. }
+\nextTema{Tema 13: Evaluación de las políticas de planificación. }
+\cite{silberschatz2012}, \cite{stallings2005}, \cite{tanenbaum2006}, \cite{tanenbaum2001}, \cite{mateu1999} 
+
+%inicio unidad
+\nextUnidad{MEMORIA Y SISTEMA DE ARCHIVOS }
+\nextCapitulo{GESTOR DE MEMORIA }
+\nextTema{Cuestiones básicas }
+\nextTema{Abstracción del espacio de direcciones }
+\nextTema{Políticas de Asignación }
+\nextTema{Tema 14: Gestión de bloques de memoria} 
+\nextTema{Traducción de direcciones} 
+\nextTema{Tema 15: Paginación} 
+\nextTema{Políticas de reemplazo }
+\nextTema{Segmentación }
+\nextTema{Segmentación paginada} 
+
 
 \cite{silberschatz2012}, \cite{stallings2005}, \cite{tanenbaum2006}, \cite{tanenbaum2001}, \cite{mateu1999} 
 
 
 %inicio unidad
-\nextUnidad{\OSSchedulingandDispatch}
-\nextCapitulo{\OSSchedulingandDispatch}
-\nextTema{\OSSchedulingandDispatchTopicPreemptive}
-\nextTema{\OSSchedulingandDispatchTopicSchedulers}
-\nextTema{\OSSchedulingandDispatchTopicProcesses}
-\nextTema{\OSSchedulingandDispatchTopicDeadlines}
+\nextUnidad{GESTOR DEL SISTEMA DE ARCHIVOS }
+\nextTema{Tema 16: Describir  e  identificar  aspectos  operativos  en  el  sistema  de  archivos  de  los  sistemas operativos. }
+\nextTema{Implementación de archivos y de directorios }
+\nextTema{Estructura y funciones del sistema de archivos.}
 
 \cite{silberschatz2012}, \cite{stallings2005}, \cite{tanenbaum2006}, \cite{tanenbaum2001}, \cite{mateu1999} 
-
-
-%inicio unidad
-\nextUnidad{\OSMemoryManagement}
-\nextCapitulo{\OSMemoryManagement}
-\nextTema{\OSMemoryManagementTopicReview}
-\nextTema{\OSMemoryManagementTopicWorking}
-\nextTema{\OSMemoryManagementTopicCaching}
-
-\cite{silberschatz2012}, \cite{stallings2005}, \cite{tanenbaum2006}, \cite{tanenbaum2001}, \cite{mateu1999} 
-
-
-%inicio unidad
-\nextUnidad{\OSSecurityandProtection}
-\nextCapitulo{\OSSecurityandProtection}
-\nextTema{\OSSecurityandProtectionTopicOverview}
-\nextTema{\OSSecurityandProtectionTopicPolicy}
-\nextTema{\OSSecurityandProtectionTopicSecurity}
-\nextTema{\OSSecurityandProtectionTopicProtection}
-\nextTema{\OSSecurityandProtectionTopicBackups}
-
-\cite{silberschatz2012}, \cite{stallings2005}, \cite{tanenbaum2006}, \cite{tanenbaum2001}, \cite{mateu1999} 
-
-
-%inicio unidad
-\nextUnidad{\OSVirtualMachines}
-\nextCapitulo{\OSVirtualMachines}
-\nextTema{\OSVirtualMachinesTopicTypes}
-\nextTema{\OSVirtualMachinesTopicPaging}
-\nextTema{\OSVirtualMachinesTopicVirtual}
-\nextTema{\OSVirtualMachinesTopicHypervisors}
-\nextTema{\OSVirtualMachinesTopicPortable}
-\nextTema{\OSVirtualMachinesTopicCost}
-
-\cite{silberschatz2012}, \cite{stallings2005}, \cite{tanenbaum2006}, \cite{tanenbaum2001}, \cite{mateu1999} 
-
-
-%inicio unidad
-\nextUnidad{\OSDeviceManagement}
-\nextCapitulo{\OSDeviceManagement}
-\nextTema{\OSDeviceManagementTopicCharacteristics}
-\nextTema{\OSDeviceManagementTopicAbstracting}
-\nextTema{\OSDeviceManagementTopicBuffering}
-\nextTema{\OSDeviceManagementTopicDirect}
-\nextTema{\OSDeviceManagementTopicRecovery}
-
-\cite{silberschatz2012}, \cite{stallings2005}, \cite{tanenbaum2006}, \cite{tanenbaum2001}, \cite{mateu1999} 
-
-
-%inicio unidad
-\nextUnidad{\OSFileSystems}
-\nextCapitulo{\OSFileSystems}
-\nextTema{\OSFileSystemsTopicFiles}
-\nextTema{\OSFileSystemsTopicDirectories}
-\nextTema{\OSFileSystemsTopicFile}
-\nextTema{\OSFileSystemsTopicStandard}
-\nextTema{\OSFileSystemsTopicMemory}
-\nextTema{\OSFileSystemsTopicSpecial}
-\nextTema{\OSFileSystemsTopicNaming}
-\nextTema{\OSFileSystemsTopicJournaling}
-
-\cite{silberschatz2012}, \cite{stallings2005}, \cite{tanenbaum2006}, \cite{tanenbaum2001}, \cite{mateu1999} 
-
-
-%inicio unidad
-\nextUnidad{\OSRealTimeandEmbeddedSystems}
-\nextCapitulo{\OSRealTimeandEmbeddedSystems}
-\nextTema{\OSRealTimeandEmbeddedSystemsTopicProcess}
-\nextTema{\OSRealTimeandEmbeddedSystemsTopicMemoryDisk}
-\nextTema{\OSRealTimeandEmbeddedSystemsTopicFailures}
-\nextTema{\OSRealTimeandEmbeddedSystemsTopicSpecialConcerns}
-
-\cite{silberschatz2012}, \cite{stallings2005}, \cite{tanenbaum2006}, \cite{tanenbaum2001}, \cite{mateu1999} 
-
-
-%inicio unidad
-\nextUnidad{\OSFaultTolerance}
-\nextCapitulo{\OSFaultTolerance}
-\nextTema{\OSFaultToleranceTopicFundamental}
-\nextTema{\OSFaultToleranceTopicSpatial}
-\nextTema{\OSFaultToleranceTopicMethods}
-\nextTema{\OSFaultToleranceTopicExamples}
-
-\cite{silberschatz2012}, \cite{stallings2005}, \cite{tanenbaum2006}, \cite{tanenbaum2001}, \cite{mateu1999} 
-
-
-%inicio unidad
-\nextUnidad{\OSSystemPerformanceEvaluation}
-\nextCapitulo{\OSSystemPerformanceEvaluation}
-\nextTema{\OSSystemPerformanceEvaluationTopicWhy}
-\nextTema{\OSSystemPerformanceEvaluationTopicWhat}
-\nextTema{\OSSystemPerformanceEvaluationTopicSystems}
-\nextTema{\OSSystemPerformanceEvaluationTopicEvaluation}
-\nextTema{\OSSystemPerformanceEvaluationTopicHow}
-
-\cite{silberschatz2012}, \cite{stallings2005}, \cite{tanenbaum2006}, \cite{tanenbaum2001}, \cite{mateu1999} 
-
-
-
-
-
 \end{contenidos}
-
-
-
 
 \begin{estrategiasEnsenanza}
     \begin{metodos}
-        Método expositivo en las clases teóricas \\
-        Método de elaboración conjunta en los seminarios taller y en la elaboración del proyecto de investigación.
+    Expositivo en las clases teóricas\\
+    Método de elaboración conjunta en los talleres\\
+    Estudio de casos, orales y visuales \\
+
     \end{metodos}
     \begin{medios}
-        Pizarra acrílica, plumones, cañón multimedia, material de laboratorio, videos, software.
+        Pizarra acrílica, plumones, cañón multimedia, material de laboratorio, videos, software, maquetas, etc.
     \end{medios}
     \begin{formasOrganizacion}
         %Se pone los que se necesiten
-        \newItemFO{Clases Teóricas}{Desarrollo de los conceptos teóricos}
-        \newItemFO{Seminarios}{Algo...}
-        \newItemFO{Prácticas}{Algo...}
-        \newItemFO{Laboratorio}{Aplicación de los conceptos vistos es clases teóricas.}
-        \newItemFO{Otros}{Algo...}
+        \newItemFO{Clases Teóricas}{Exposición de clase magistral.}
+        \newItemFO{Prácticas}{Trabajo en grupo o de manera individual.}
+        \newItemFO{Laboratorio}{Desarrollo de ejercicios en Laboratorio.}
     \end{formasOrganizacion}
     \begin{programacion}
-        \newItemFO{Investigación Formativa}{Implementación de Sistema Computacional Web usando una base de datos relacional normalizada}
-        \newItemFO{Responsabilidad Social}{Generar videos para la enseñanza de implementación de bases de datos y que sean disponibilizados de la población}
-    \end{programacion}
-    \begin{segumientoAprendizaje}
-        Aquí va el seguimiento del aprendizaje
-    \end{segumientoAprendizaje}
+        \newItemFO{Investigación Formativa}{Investigar sobre los algoritmos de gestión y planificación  de procesos, memoria y de disco en los diferentes sistemas operativos modernos.}
+        \newItemFO{Responsabilidad Social}{Difundir los resultados de la investigación en la comunidad universitaria}
+     \end{programacion}
+    %\begin{segumientoAprendizaje}
+     %   Aquí va el seguimiento del aprendizaje
+    %\end{segumientoAprendizaje}
 \end{estrategiasEnsenanza}
 
 
 \begin{cronogramaAcademico}
-    \newItemCA{Tema1}{Edward Hinojosa Cárdenas}{10}  %Tema/Evaluación - Docente - Porcentaje acumulado
-    \newItemCA{Tema2}{Edward Hinojosa Cárdenas}{16}
-    \newItemCA{Tema3}{Edward Hinojosa Cárdenas}{20}
-    \newItemCA{Tema4}{Edward Hinojosa Cárdenas}{25}
-    \newItemCA{Tema5}{Edward Hinojosa Cárdenas}{33}
-    \newItemCA{Tema6}{Edward Hinojosa Cárdenas}{37}
-    \newItemCA{Tema7}{Edward Hinojosa Cárdenas}{40}
-    \newItemCA{Tema8}{Edward Hinojosa Cárdenas}{45}
-    \newItemCA{Tema9}{Edward Hinojosa Cárdenas}{50}
-    \newItemCA{Tema10}{Edward Hinojosa Cárdenas}{53}
-    \newItemCA{Tema11}{Edward Hinojosa Cárdenas}{58}
-    \newItemCA{Tema12}{Edward Hinojosa Cárdenas}{64}
-    \newItemCA{Tema13}{Edward Hinojosa Cárdenas}{69}
-    \newItemCA{Tema14}{Edward Hinojosa Cárdenas}{76}
-    \newItemCA{Tema15}{Edward Hinojosa Cárdenas}{84}
-    \newItemCA{Tema16}{Edward Hinojosa Cárdenas}{93}
-    \newItemCA{Tema17}{Edward Hinojosa Cárdenas}{100}
+    \newItemCA{Tema 1}{Roxana Flores Quispe}{6}  %Tema/Evaluación - Docente - Porcentaje acumulado
+    \newItemCA{Tema 2 }{Roxana Flores Quispe}{12}
+    \newItemCA{Tema 3 }{Roxana Flores Quispe}{18}
+    \newItemCA{Tema 4 }{Roxana Flores Quispe}{24}
+    \newItemCA{Tema 5 / Primer Examen }{Roxana Flores Quispe}{30}
+    \newItemCA{Tema 6}{Roxana Flores Quispe}{36}
+    \newItemCA{Tema 7}{Roxana Flores Quispe}{42}
+    \newItemCA{Tema 8 }{Roxana Flores Quispe}{48}
+    \newItemCA{Tema 9 }{Roxana Flores Quispe}{54}
+    \newItemCA{Tema 10}{Roxana Flores Quispe}{60}
+    \newItemCA{Tema 11 / Segundo Examen }{Roxana Flores Quispe}{66}
+    \newItemCA{Tema 12}{Roxana Flores Quispe}{72}
+    \newItemCA{Tema 13}{Roxana Flores Quispe}{78}
+    \newItemCA{Tema 14}{Roxana Flores Quispe}{84}
+    \newItemCA{Tema 15 }{Roxana Flores Quispe}{90}
+    \newItemCA{Tema 16 / Proyecto Final}{Roxana Flores Quispe}{95}
+    \newItemCA{Tercer Examen}{Roxana Flores Quispe}{100}
+    
+    
+   
 \end{cronogramaAcademico}
 
 \begin{estrategiasEvaluacion}
     \begin{evaluacionContinua}
-        Práctica y Laboratorios en cada clase sobre los temas realizados, tanto para el primer parcial (EC1), segundo parcial (EC2) y tercer parcial (EC3).
-    \end{evaluacionContinua}
+        \newItemEC{Primer consolidado de Trabajos encargados, laboratorios y participación}{10\%}\\
+        \newItemEC{Segundo consolidado de Trabajos encargados, laboratorios y participación}{15\%}\\
+        \newItemEC{Tercer consolidado de Trabajos encargados, laboratorios y participación}{15\%}
+       
+           \end{evaluacionContinua}
     \begin{evaluacionPeriodica}
-        \newItemEP{Primer Examen}{ponderación}
-        \newItemEP{Segundo Examen}{ponderación}
-        \newItemEP{Tercer Examen}{}
+        \newItemEP{Primer Examen}{20\%}
+        \newItemEP{Segundo Examen}{20\%}
+        \newItemEP{Tercer Examen}{20\%}
     \end{evaluacionPeriodica}
     \begin{cronogramaEvaluacion}
-        \newItemCE{11/5/2019}{11/5/2019}{11/5/2019}{30\%}
-        \newItemCE{11/8/2019}{11/8/2019}{11/8/2019}{30\%}
-        \newItemCE{11/12/2019}{11/12/2019}{11/12/2019}{40\%}
+        \newItemCE{11/9/2018}{11/9/2019}{11/9/2018}{30\%}
+        \newItemCE{11/11/2018}{11/11/2018}{11/11/2018}{35\%}
+        \newItemCE{11/12/2019}{11/12/2019}{11/12/2018}{35\%}
     \end{cronogramaEvaluacion}
-    \begin{tipoEvaluacion}
-        Tipo de evaluación
-    \end{tipoEvaluacion}
-    \begin{instrumentosEvaluacion}
-        Instrumentos de evaluación
-    \end{instrumentosEvaluacion}
+  %  \begin{tipoEvaluacion}
+   %     Tipo de evaluación
+    %\end{tipoEvaluacion}
+    %\begin{instrumentosEvaluacion}
+     %   Instrumentos de evaluación
+    %\end{instrumentosEvaluacion}
 \end{estrategiasEvaluacion}
 
 \begin{requisitosAprobacion}
 \item El alumno tendrá derecho a observar o en su defecto a ratificar las notas consignadas en sus evaluaciones, después de ser entregadas las mismas por parte del profesor, salvo el vencimiento de plazos para culminación del semestre académico, luego del mismo, no se admitirán reclamaciones,
 alumno que no se haga presente en el día establecido, perderá su derecho a reclamo.
-\item Para aprobar ...
+\item Para aprobar el alumno debe tener notas en todas las evaluaciones programadas  
+\item Para aprobar se precisa tener una Nota Final mayor que 10.5
 \end{requisitosAprobacion}
 
 \bibliography{CS2S1.bib}
 \bibliographystyle{apalike}
 
-\fecha
+%\fecha
+\\
+\\ 
+\ Fecha : Arequipa, 19 de julio de 2018.
 \firma
 
 \end{document}

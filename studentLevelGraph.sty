@@ -1,0 +1,72 @@
+
+
+\usepackage{pgfplots}
+\usepackage{xcolor}
+\usepackage{tikz}
+
+\definecolor{hous}{HTML}{b88b4d}
+\definecolor{green}{HTML}{79c561}
+\definecolor{farming}{HTML}{ded94c}
+\definecolor{trans}{HTML}{b4b4a9}
+\definecolor{services}{HTML}{ff362e}
+\definecolor{other}{HTML}{dbd4d3}
+\definecolor{industry}{HTML}{db79c0}
+\definecolor{water}{HTML}{7982db}
+\definecolor{techinfra}{HTML}{303355}
+
+
+%\pgfplotsset{compat=1.11}
+%\begin{document}
+%\begin{tikzpicture}
+% \begin{axis}[
+  %axis lines={left, },% xtick=\empty
+  %axis lines={left, right},
+  %legend style={draw=none},
+  %
+  %/pgfplots/axis y line*=box|left|middle|center|right|none 219
+  %giving up on removing top and right lines%%%
+%  compat=newest,
+%  axis on top,
+%  title=Gears Rxf,
+% xbar, xmin=0,
+%  bar width= 1.0cm,
+%  width=12cm, height=5cm, enlarge y limits=0.5,
+%  xlabel={Points},
+  %==========
+%  x=2.5cm,
+%  symbolic x coords={Special,Normal, Test},
+%  xtick={Special, Normal, Test}, 
+%  x tick label style={anchor=west,color=white,xshift= \pgfkeysvalueof{/pgfplots/major tick length}},
+%  bar shift=0pt,
+  %yticklabel style={inner ysep=0pt, anchor=south east},
+%  nodes near coords, nodes near coords align={horizontal},
+% ]
+% \addplot[color=gray,fill] coordinates {(2.31,Normal)};
+% \addplot[color=black,fill] coordinates {(2.58,Special)};
+% \addplot[color=black,fill] coordinates {(2.58,Test)};
+%\end{axis}
+%\end{tikzpicture}
+%\end{document}
+
+\newcommand{\studentLevelGraph}[3]{
+\begin{tikzpicture}
+    \begin{axis}[
+    ybar stacked,
+    bar width=1cm,
+    ymin=0, %<--- Set the y-axis minimum value
+    ymax=100,
+    enlarge x limits=0.3,
+    legend style={at={(0.5,-0.2)},
+        anchor=north,legend columns=-1},
+    ylabel={Alumnos (\%)},
+    symbolic x coords={Malo,Medio,Bueno},
+%    enlarge y limits={upper=0},
+%    another option to reset the x-axis intersection with the y-axis for this graph
+    xtick=data,
+    axis on top,
+    nodes near coords,
+    ]
+    \addplot [water,fill] coordinates {(Malo,#1) (Medio,#2) (Bueno,#3)};
+    \end{axis}
+    \end{tikzpicture}%
+}
