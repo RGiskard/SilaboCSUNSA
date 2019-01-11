@@ -1,0 +1,84 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{vmargin}
+\usepackage{fancyhdr}
+\usepackage{graphics}
+\usepackage{../../icacit}
+\usepackage[margin=2.5cm,headheight=200pt,includeheadfoot]{geometry}
+
+\setpapersize{A4}
+\setmargins{2.5cm}       % margen izquierdo
+{0.5cm}                        % margen superior
+{16.5cm}                      % anchura del texto
+{23.42cm}                    % altura del texto
+{10pt}                           % altura de los encabezados
+{1cm}                           % espacio entre el texto y los encabezados
+{0pt}                             % altura del pie de página
+{2cm}                           % espacio entre el texto y el pie de página
+
+
+\begin{document}
+
+\sylabusHeader
+\sylabusTitle
+
+\curso
+{1004247} %Código del curso
+{COMPILADORES} %Nombre del curso
+{2018-B} %Semestre
+
+\creditosHoras
+{4} %Número de creditos
+{2} %Horas teoría
+{2} %Horas práctica
+{2} %Horas teórico-practica
+{} %Horas laboratorio
+{6} %Total de horas
+
+\instructor
+{Dr. Yuber Elmer Velazco Paredes}
+
+\libro
+{Construccion de Compiladores Principios y Practica} %Título del libro
+{Kenneth C. Louden} %Autor del libro
+{2004} %Año del libro
+
+\libroSecundario
+{Compiladores. Principios, técnicas y herramientas} %Título del libro
+{Alfred Aho and Mónica Lam and Ravi Sethi and Jeffrey D. Ullman} %Autor del libro
+{2008} %Año del libro
+
+\begin{datosCurso}
+    \begin{descripcion}
+        El curso de Compiladores tiene como propósito que el estudiante aprenda los principios fundamentales de análisis y síntesis de compiladores y/o interpretes en la solución de problemas computacionales.
+        
+    \end{descripcion}
+    \begin{requisitos}
+        \newItemReq{1004141}{Lenguajes de Programación}
+        
+    \end{requisitos}
+    \ObligatorioElectivo
+    {X} %Marcar esta si es obligatorio 
+    {} %Marcar esta si es electivo
+\end{datosCurso}
+
+\begin{objetivosCurso}
+    \begin{resultadosEspecificos}
+        El  curso  está orientado a que el estudiante desarrolle un compilador y/o intérprete basado en el diseño de una gramática y utilización de alguna herramientas que facilite su elaboración.
+    \end{resultadosEspecificos}
+    \begin{resultadosEstudiante}
+        i) La capacidad de aplicar fundamentos matemáticos, principios algorítmicos y teoría de ciencias de la computación en el modelamiento y diseño de sistemas basados en computadora de modo que demuestren la comprensión de las ventajas y desventajas involucradas en las opciones de diseño (1:Comprende)
+    \end{resultadosEstudiante}
+\end{objetivosCurso}
+
+\begin{ListaTemas}
+\nextUnidad{Visión general de los compiladores}
+\nextUnidad{Análisis Léxico}
+\nextUnidad{Análisis Sintáctico}
+\nextUnidad{Análisis Semántico}
+\nextUnidad{Generación de código}
+\nextUnidad{Manejo de errores}
+\end{ListaTemas}
+
+
+\end{document}
