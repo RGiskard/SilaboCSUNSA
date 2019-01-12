@@ -54,8 +54,28 @@ names = [line.rstrip('\n') for line in open('files.txt')]
 ##eliminar archivos no utilizados
 del names[0]
 del names[0]
+#obtener nombre del curso
+campos=names[0].split("_")#campos
+notas=campos[3]#parsear para obtener notas
 
 ####Para testear solamente
 clave="Nota"
-dfInit=getFrame(names[0])
-dfNota1=getMinimunFrame(names[1],clave)
+#dfInit=getFrame(names[0])
+#dfNota1=getMinimunFrame(names[1],clave)
+DataFrame=pd.DataFrame()
+#DataFrame=getFrame(names[0])
+def unir(Files):
+	DataFrame=getFrame(Files[0])
+	for i in range(1,len(Files)):
+		print(i)
+		dfNota=getMinimunFrame(Files[i],clave)
+		DataFrame=pd.concat([DataFrame,dfNota],axis=1)
+		print("______________________")
+	return DataFrame
+
+def main():
+	nameExit=notas+".csv"
+	DataFrame=unir(names)
+	DataFrame.to_csv(nameExit,sep=',')
+
+main()
