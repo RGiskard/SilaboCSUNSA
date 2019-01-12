@@ -1,101 +1,64 @@
-
-\documentclass[12pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage{vmargin}
-\usepackage{fancyhdr}
-\usepackage{graphics}
-\usepackage{icacit}
-\usepackage[margin=2.5cm,headheight=200pt,includeheadfoot]{geometry}
-
-
-\setpapersize{A4}
-\setmargins{2.5cm}       % margen izquierdo
-{1.5cm}                        % margen superior
-{16.5cm}                      % anchura del texto
-{23.42cm}                    % altura del texto
-{10pt}                           % altura de los encabezados
-{1cm}                           % espacio entre el texto y los encabezados
-{0pt}                             % altura del pie de página
-{2cm}                           % espacio entre el texto y el pie de página
-
- 
-
-\fancyhf{}
-\fancyhead[C]{
-
-
-}
-
-\renewcommand\headrulewidth{0pt}
-\pagestyle{fancy}
-
+\documentclass[varwidth=true, border=2pt]{article}
+\usepackage{studentLevelGraph}
 
 \begin{document}
-
-
-\begin{minipage}[c]{0.33\linewidth}
-    \includegraphics[scale=0.13]{images/image001.png}
-\end{minipage} 
-\begin{minipage}[c]{0.75\linewidth}
-\begin{center}
-
-\textbf{UNIVERSIDAD NACIONAL SAN AGUSTIN DE AREQUIPA
-FACULTAD DE INGENIERIA DE PRODUCCION Y SERVICIOS}
-\end{center}
-
-\end{minipage}
-
-
-Sílabos de Curso
-
-ESCUELA PROFESIONAL DE INTENIERÍA
-
-\curso
-{1702226} %Código del curso
-{BASE DE DATOS I} %Nombre del curso
-{2018-B} %Semestre
-
-\creditosHoras
-{4} %Número de creditos
-{2} %Horas teoría
-{} %Horas práctica
-{} %Horas teórico-practica
-{4} %Horas laboratorio
-{6} %Total de horas
-
-\instructor
-{Dr. Edward Hinojosa Cárdenas}
-
-\libro
-{Database System Concepts (6th ed.)} %Título del libro
-{Korth H, Saenz F, Silberschatz A, Sudarshan S} %Autor del libro
-{2013} %Año del libro
-
-\libroSecundario
-{Database System Concepts (6th ed.)} %Título del libro
-{Korth H, Saenz F, Silberschatz A, Sudarshan S} %Autor del libro
-{2013} %Año del libro
-
-\begin{datosCurso}
-    \begin{descripcion}
-        El curso de Base de Datos I tiene propósito desarrollar en el estudiante la capacidad de implementar una base de datos empleando adecuadamente los fundamentos de normalización, el modelo entidad-relación y el diseño lógico, basado en los requerimientos de información de una organización.
-    \end{descripcion}
-\end{datosCurso}
-
-Nombre del Curso
-
-Créditos y horas semanal:
-
-Nombre del Instructor o Coordinador del Curso
-
-Libro texto: titulo y autor
-
-
-
+\begin{tikzpicture}
+        \begin{axis}[
+        ybar=-1cm,
+        axis x line*=bottom,
+        axis y line*=left,
+        height=8cm, width=8cm,
+        bar width=1cm,
+        ylabel={Share of land use in [\%]},
+        symbolic x coords={Housing,Urban green,Farmlands,Test},
+        x tick label style={rotate=45, anchor=east, align=left},
+        nodes near coords,
+        nodes near coords align={vertical}          
+        ]
+        \addplot[hous,fill] coordinates {(Housing,28)};
+        \addplot[green,fill] coordinates {(Urban green,28)};
+        \addplot[farming,fill] coordinates {(Farmlands,12)};
+        \addplot[farming,fill] coordinates {(Test,12)};
+        \end{axis}
+        \end{tikzpicture}  
+        
+        \begin{tikzpicture}
+        \begin{axis}[
+        ybar=-1cm,
+        axis x line*=bottom,
+        axis y line*=left,
+        height=8cm, width=\textwidth,
+        bar width=1cm,
+        ylabel={Share of land use in [\%]},
+        symbolic x coords={Housing,Urban green,Farmlands,Transport infrastructure,Services,Other,Industrial,Water bodies,Technical infrastructure},
+        x tick label style={rotate=45, anchor=east, align=left},
+        nodes near coords,
+        nodes near coords align={vertical}          
+        ]
+        \addplot[hous,fill] coordinates {(,0)};
+        \addplot[green,fill] coordinates {(Urban green,28)};
+        \addplot[farming,fill] coordinates {(Farmlands,12)};
+        \addplot[trans,fill] coordinates {(Transport infrastructure,10)};
+        \addplot[services,fill] coordinates {(Services,7)};
+        \addplot[other,fill] coordinates {(Other,6)};
+        \addplot[industry,fill] coordinates {(Industrial,5)};
+        \addplot[water,fill] coordinates {(Water bodies,3)};
+        \addplot[techinfra,fill] coordinates {(Technical infrastructure,1)};            
+        \end{axis}
+        \end{tikzpicture}  
+        
+        
+        \studentLevelGraph{25}{35}{40}
+        
+        \pgfplotsset{width=7cm,compat=1.8}
+        
+        
+\begin{tikzpicture}
+\begin{axis}[ybar stacked,legend entries={a,b,c},bar width=1,axis on top,
+symbolic x coords={Malo,Medio,Bueno}]
+\addplot coordinates {(Malo,1) (Medio,1) (Bueno,3)};
+\end{axis}
+\end{tikzpicture}
+    
+    
 \end{document}
-
-
-
-
-
-%aqui duerme el desgraciado gg

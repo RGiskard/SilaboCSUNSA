@@ -1,0 +1,101 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{vmargin}
+\usepackage{fancyhdr}
+\usepackage{graphics}
+\usepackage{../../icacit}
+\usepackage[margin=2.5cm,headheight=200pt,includeheadfoot]{geometry}
+
+\setpapersize{A4}
+\setmargins{2.5cm}       % margen izquierdo
+{0.5cm}                        % margen superior
+{16.5cm}                      % anchura del texto
+{23.42cm}                    % altura del texto
+{10pt}                           % altura de los encabezados
+{1cm}                           % espacio entre el texto y los encabezados
+{0pt}                             % altura del pie de página
+{2cm}                           % espacio entre el texto y el pie de página
+
+
+\begin{document}
+
+\sylabusHeader
+\sylabusTitle
+
+\curso
+{1003239} %Código del curso
+{SISTEMAS OPERATIVOS} %Nombre del curso
+{2018-B} %Semestre
+
+\creditosHoras
+{5} %Número de creditos
+{2} %Horas teoría
+{2} %Horas práctica
+{} %Horas teórico-practica
+{2} %Horas laboratorio
+{6} %Total de horas
+
+\instructor
+{Dra. Roxana Flores Quispe}
+
+%\libro
+%{Operating System Concepts, (9th ed.)} %Título del libro
+%{Avi Silberschatz, Peter Baer Galvin, Greg Gagne} %Autor %del libro
+%{2012} %Año del libro
+
+
+\libro
+{Operating Systems: Internals and Design Principles, (5th ed.)} %Título del libro
+{William Stallings} %Autor del libro
+{2005} %Año del libro
+
+%\libro
+
+
+
+\libroSecundario
+{Operating Systems Design and Implementation, (3th ed.)} %Título del libro
+{Andrew S. Tanenbaum} %Autor del libro
+{2006} %Año del libro
+%{Apuntes de Sistemas Operativos} %Título del libro
+%{Luis Mateu} %Autor del libro
+%{1999} %Año del libro
+
+\begin{datosCurso}
+    \begin{descripcion}
+      Este curso presenta los conceptos fundamentales de los sistemas operativos actuales. Se introducen conceptos de planificación,  programación  concurrente  y  se analizan  problemas  que  los  mismos  presentan  como:  exclusión  mutua, interbloqueo  e  inanición.  Se  analizan  también  las  estructuras  de  datos  usadas  para  administrar  la  memoria principal  y  el  sistema  de  archivos  en  un  sistema  operativo  real.  A  fin  de  validar  estos  conceptos.
+      %,  el  curso incluye  prácticas  y  proyectos  donde  el  estudiante  debe  diseñar  e  implementar  soluciones  a  problemas  que requieren explotar las funcionalidades de un sistema operativo%
+      
+
+        
+    \end{descripcion}
+    \begin{requisitos}
+        \newItemReq{1702117}{Arquitectura de Computadores}
+        
+    \end{requisitos}
+    \ObligatorioElectivo
+    {X} %Marcar esta si es obligatorio 
+    {} %Marcar esta si es electivo
+\end{datosCurso}
+
+\begin{objetivosCurso}
+    \begin{resultadosEspecificos}
+    Este curso tiene por objetivo que el alumno pueda analizar y comprender el funcionamiento de cómo se administran los recursos software y hardware del computador incluyendo la planificación de procesos, la gestión de memoria, sistema de archivos y disco, para que el alumno aplique su pensamiento crítico, creativo e innovador al resolver problemas de su entorno de acuerdo al análisis  respectivo.
+    
+       
+    \end{resultadosEspecificos}
+    \begin{resultadosEstudiante}
+        1) Aplica los fundamentos matemáticos, principios algorítmicos y teoría de ciencias de la computación en el modelamiento y diseño de sistemas basados en computadora para simular y optimizar la planificación y gestión de procesos, memoria y disco.  2) Aplica en un nivel intermedio.
+    \end{resultadosEstudiante}
+\end{objetivosCurso}
+
+\begin{ListaTemas}
+%\nextUnidad{FUNDAMENTOS DE LOS SISTEMAS OPERATIVOS} 
+\nextUnidad{PROCESOS E HILOS} 
+\nextUnidad{GESTOR DE ENTRADA / SALIDA} 
+\nextUnidad{GESTOR DE MEMORIA Y SISTEMA DE ARCHIVOS} 
+
+\end{ListaTemas}
+
+
+\end{document}
