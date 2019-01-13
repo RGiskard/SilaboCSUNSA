@@ -1,0 +1,218 @@
+\documentclass[a4paper,8pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{tabularx}
+\usepackage{setspace}
+\usepackage{../../silabus}
+
+\begin{document}
+
+%%Setear variables
+\setPeriodoAcademico{2018-B}
+\setNombreAsignatura{Estructuras de Datos Avanzadas}
+\setNombreProfesor{}
+\setGradoProfesorAbreviado{}
+\sylabusHeader
+
+\academicaTable
+{Ciencia de la Computación} %Escuela Profesional
+{CS1003233} %Código de la asignatura
+{6$^{to}$ Semestre.} %Número del semestre
+{Semestral} %Características
+{17 Semanas} %Duración
+{2 HT} %Número de horas teóricas
+{2 HP} %Número de horas prácticas
+{0} %Número de horas seminarios
+{2 HL}  %Número de horas laboratorio
+{2} %Número de horas Teórico-práctico
+{4} %Número de créditos
+{CS1003124} % Prerrequisitos (separados por comas)
+
+\administrativaTable
+{Doctor} %Grado académico del profesor
+{Ingeniería de Sistemas e Informática} %Departamento académico
+{6} %Número de horas totales
+{2} %Número de horas - lunes
+{-} %Número de horas - martes
+{2} %Número de horas - miercoles
+{2} %Número de horas - jueves
+{-} %Número de horas - viernes
+{101} %Aula de clase - lunes
+{-} %Aula de clase - martes
+{101} %Aula de clase - miercoles
+{101} %Aula de clase - jueves
+{-} %Aula de clase - viernes
+
+
+\begin{fundamentacion}
+Los algoritmos y estructuras de datos son una parte fundamental de la ciencia de la computación que nos 
+permiten organizar la información de una manera más eficiente, por lo que es importante para todo 
+profesional del área tener una sólida formación en este aspecto.
+
+En el curso de estructuras de datos avanzadas nuestro objetivo es que el alumno conozca y analize 
+estructuras complejas, como los Métodos de Acceso Multidimensional, 
+Métodos de Acceso Espacio-Temporal y Métodos de Acceso Métrico, etc.
+
+\end{fundamentacion}
+
+\begin{sumilla}
+\item Técnicas Básicas de Implementación de Estructuras de Datos
+\item Métodos de Acceso Multidimensionales
+\item Métodos de Acceso Métrico
+\item Métodos de Acceso Aproximados
+\item Seminarios
+
+\end{sumilla}
+
+\begin{competenciasAsignatura}
+\item \ShowCompetence{C1}{a}
+\item \ShowCompetence{C20}{b}
+\item \ShowCompetence{CS2}{c}
+
+\end{competenciasAsignatura}
+
+\begin{contenidos}
+
+
+%inicio unidad
+\nextUnidad{Técnicas Básicas de Implementación de Estructuras de Datos}
+\nextCapitulo{Técnicas Básicas de Implementación de Estructuras de Datos}
+\nextTema{Programación estructurada}
+\nextTema{Programación Orientada a Objetos}
+\nextTema{Tipos Abstractos de Datos}
+\nextTema{Independencia del lenguaje de programación del usuario de la estructura}
+\nextTema{Independencia de Plataforma}
+\nextTema{Control de concurrencia}
+\nextTema{Protección de Datos}
+\nextTema{Niveles de encapsulamiento (struct, class, namespace, etc)}
+
+\cite{Cuadros2004Implementing}, \cite{Knuth2007TAOCP-V-I}, \cite{Knuth2007TAOCP-V-II}, \cite{Gamma94} 
+
+
+%inicio unidad
+\nextUnidad{Métodos de Acceso Multidimensionales}
+\nextCapitulo{Métodos de Acceso Multidimensionales}
+\nextTema{Métodos de Acceso para datos puntuales}
+\nextTema{Métodos de Acceso para datos no puntuales}
+\nextTema{Problemas relacionados con el aumento de dimensión}
+
+\cite{Samet2004SAM-MAM}, \cite{Gaede98multidimensional} 
+
+
+%inicio unidad
+\nextUnidad{Métodos de Acceso Métrico}
+\nextCapitulo{Métodos de Acceso Métrico}
+\nextTema{Métodos de Acceso Métrico para distancias discretas}
+\nextTema{Métodos de Acceso Métrico para distancias continuas}
+
+\cite{Samet2004SAM-MAM}, \cite{Chavez:01}, \cite{Traina00SlimTree}, \cite{Zezula07} 
+
+
+%inicio unidad
+\nextUnidad{Métodos de Acceso Aproximados}
+\nextCapitulo{Métodos de Acceso Aproximados}
+\nextTema{Space Filling Curves}
+\nextTema{Locality Sensitive Hashing}
+
+\cite{Indyk06}, \cite{Zezula07}, \cite{Samet2004SAM-MAM} 
+
+
+%inicio unidad
+\nextUnidad{Seminarios}
+\nextCapitulo{Seminarios}
+\nextTema{Métodos de Acceso Espacio Temporal}
+\nextTema{Estructuras de Datos con programación genérica}
+
+\cite{Samet2004SAM-MAM}, \cite{Chavez:01} 
+
+
+
+
+
+\end{contenidos}
+
+
+
+
+\begin{estrategiasEnsenanza}
+    \begin{metodos}
+        Método expositivo en las clases teóricas \\
+        Método de elaboración conjunta en los seminarios taller y en la elaboración del proyecto de investigación.
+    \end{metodos}
+    \begin{medios}
+        Pizarra acrílica, plumones, cañón multimedia, material de laboratorio, videos, software.
+    \end{medios}
+    \begin{formasOrganizacion}
+        %Se pone los que se necesiten
+        \newItemFO{Clases Teóricas}{Desarrollo de los conceptos teóricos}
+        \newItemFO{Seminarios}{Algo...}
+        \newItemFO{Prácticas}{Algo...}
+        \newItemFO{Laboratorio}{Aplicación de los conceptos vistos es clases teóricas.}
+        \newItemFO{Otros}{Algo...}
+    \end{formasOrganizacion}
+    \begin{programacion}
+        \newItemFO{Investigación Formativa}{Implementación de Sistema Computacional Web usando una base de datos relacional normalizada}
+        \newItemFO{Responsabilidad Social}{Generar videos para la enseñanza de implementación de bases de datos y que sean disponibilizados de la población}
+    \end{programacion}
+    \begin{segumientoAprendizaje}
+        Aquí va el seguimiento del aprendizaje
+    \end{segumientoAprendizaje}
+\end{estrategiasEnsenanza}
+
+
+\begin{cronogramaAcademico}
+    \newItemCA{Tema1}{Edward Hinojosa Cárdenas}{10}  %Tema/Evaluación - Docente - Porcentaje acumulado
+    \newItemCA{Tema2}{Edward Hinojosa Cárdenas}{16}
+    \newItemCA{Tema3}{Edward Hinojosa Cárdenas}{20}
+    \newItemCA{Tema4}{Edward Hinojosa Cárdenas}{25}
+    \newItemCA{Tema5}{Edward Hinojosa Cárdenas}{33}
+    \newItemCA{Tema6}{Edward Hinojosa Cárdenas}{37}
+    \newItemCA{Tema7}{Edward Hinojosa Cárdenas}{40}
+    \newItemCA{Tema8}{Edward Hinojosa Cárdenas}{45}
+    \newItemCA{Tema9}{Edward Hinojosa Cárdenas}{50}
+    \newItemCA{Tema10}{Edward Hinojosa Cárdenas}{53}
+    \newItemCA{Tema11}{Edward Hinojosa Cárdenas}{58}
+    \newItemCA{Tema12}{Edward Hinojosa Cárdenas}{64}
+    \newItemCA{Tema13}{Edward Hinojosa Cárdenas}{69}
+    \newItemCA{Tema14}{Edward Hinojosa Cárdenas}{76}
+    \newItemCA{Tema15}{Edward Hinojosa Cárdenas}{84}
+    \newItemCA{Tema16}{Edward Hinojosa Cárdenas}{93}
+    \newItemCA{Tema17}{Edward Hinojosa Cárdenas}{100}
+\end{cronogramaAcademico}
+
+\begin{estrategiasEvaluacion}
+    \begin{evaluacionContinua}
+        Práctica y Laboratorios en cada clase sobre los temas realizados, tanto para el primer parcial (EC1), segundo parcial (EC2) y tercer parcial (EC3).
+    \end{evaluacionContinua}
+    \begin{evaluacionPeriodica}
+        \newItemEP{Primer Examen}{ponderación}
+        \newItemEP{Segundo Examen}{ponderación}
+        \newItemEP{Tercer Examen}{}
+    \end{evaluacionPeriodica}
+    \begin{cronogramaEvaluacion}
+        \newItemCE{11/5/2019}{11/5/2019}{11/5/2019}{30\%}
+        \newItemCE{11/8/2019}{11/8/2019}{11/8/2019}{30\%}
+        \newItemCE{11/12/2019}{11/12/2019}{11/12/2019}{40\%}
+    \end{cronogramaEvaluacion}
+    \begin{tipoEvaluacion}
+        Tipo de evaluación
+    \end{tipoEvaluacion}
+    \begin{instrumentosEvaluacion}
+        Instrumentos de evaluación
+    \end{instrumentosEvaluacion}
+\end{estrategiasEvaluacion}
+
+\begin{requisitosAprobacion}
+\item El alumno tendrá derecho a observar o en su defecto a ratificar las notas consignadas en sus evaluaciones, después de ser entregadas las mismas por parte del profesor, salvo el vencimiento de plazos para culminación del semestre académico, luego del mismo, no se admitirán reclamaciones,
+alumno que no se haga presente en el día establecido, perderá su derecho a reclamo.
+\item Para aprobar ...
+\end{requisitosAprobacion}
+
+\bibliography{CS312.bib}
+\bibliographystyle{apalike}
+
+\fecha
+\firma
+
+\end{document}
+
+

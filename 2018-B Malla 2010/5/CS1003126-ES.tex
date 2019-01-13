@@ -1,0 +1,224 @@
+\documentclass[a4paper,8pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{tabularx}
+\usepackage{setspace}
+\usepackage{../../silabus}
+
+\begin{document}
+
+%%Setear variables
+\setPeriodoAcademico{2018-B}
+\setNombreAsignatura{Bases de Datos II}
+\setNombreProfesor{}
+\setGradoProfesorAbreviado{}
+\sylabusHeader
+
+\academicaTable
+{Ciencia de la Computación} %Escuela Profesional
+{CS1003126} %Código de la asignatura
+{5$^{to}$ Semestre.} %Número del semestre
+{Semestral} %Características
+{17 Semanas} %Duración
+{1 HT} %Número de horas teóricas
+{2 HP} %Número de horas prácticas
+{0} %Número de horas seminarios
+{2 HL}  %Número de horas laboratorio
+{2} %Número de horas Teórico-práctico
+{3} %Número de créditos
+{CS1002220} % Prerrequisitos (separados por comas)
+
+\administrativaTable
+{Doctor} %Grado académico del profesor
+{Ingeniería de Sistemas e Informática} %Departamento académico
+{6} %Número de horas totales
+{2} %Número de horas - lunes
+{-} %Número de horas - martes
+{2} %Número de horas - miercoles
+{2} %Número de horas - jueves
+{-} %Número de horas - viernes
+{101} %Aula de clase - lunes
+{-} %Aula de clase - martes
+{101} %Aula de clase - miercoles
+{101} %Aula de clase - jueves
+{-} %Aula de clase - viernes
+
+
+\begin{fundamentacion}
+La Gestión de la Información (IM-\textit{Information Management}) juega un rol principal en casi todas las áreas donde los computadores son usados. Esta área incluye la captura, digitalización, representación, organización, transformación y presentación de información; algorítmos para mejorar la eficiencia y efectividad del acceso y actualización de información almacenada, modelamiento de datos y abstracción, y técnicas de almacenamiento de archivos físicos.
+
+Este también abarca la seguridad de la información, privacidad, integridad y protección en un ambiente compartido. Los estudiantes necesitan ser capaces de desarrollar modelos de datos conceptuales y físicos, determinar que métodos de IM y técnicas son apropiados para un problema dado, y ser capaces de seleccionar e implementar una apropiada solución de IM que refleje todas las restricciones aplicables, incluyendo escalabilidad y usabilidad.
+
+\end{fundamentacion}
+
+\begin{sumilla}
+\item \IMPhysicalDatabaseDesign
+\item \IMTransactionProcessing
+\item \IMInformationStorageandRetrieval
+\item \IMDistributedDatabases
+
+\end{sumilla}
+
+\begin{competenciasAsignatura}
+\item \ShowCompetence{C1}{b}
+\item \ShowCompetence{C7}{j}
+\item \ShowCompetence{CS4}{k}
+
+\end{competenciasAsignatura}
+
+\begin{contenidos}
+
+
+%inicio unidad
+\nextUnidad{\IMPhysicalDatabaseDesign}
+\nextCapitulo{\IMPhysicalDatabaseDesign}
+\nextTema{\IMPhysicalDatabaseDesignTopicStorage}
+\nextTema{\IMPhysicalDatabaseDesignTopicIndexed}
+\nextTema{\IMPhysicalDatabaseDesignTopicHashed}
+\nextTema{\IMPhysicalDatabaseDesignTopicSignature}
+\nextTema{\IMPhysicalDatabaseDesignTopicB}
+\nextTema{\IMPhysicalDatabaseDesignTopicFiles}
+\nextTema{\IMPhysicalDatabaseDesignTopicFilesWith}
+\nextTema{\IMPhysicalDatabaseDesignTopicDatabase}
+
+\cite{burleson04}, \cite{date04}, \cite{celko05} 
+
+
+%inicio unidad
+\nextUnidad{\IMTransactionProcessing}
+\nextCapitulo{\IMTransactionProcessing}
+\nextTema{\IMTransactionProcessingTopicTransactions}
+\nextTema{\IMTransactionProcessingTopicFailure}
+\nextTema{\IMTransactionProcessingTopicConcurrency}
+\nextTema{\IMTransactionProcessingTopicInteraction}
+
+\cite{bernstein97}, \cite{elmasri04} 
+
+
+%inicio unidad
+\nextUnidad{\IMInformationStorageandRetrieval}
+\nextCapitulo{\IMInformationStorageandRetrieval}
+\nextTema{\IMInformationStorageandRetrievalTopicDocuments}
+\nextTema{\IMInformationStorageandRetrievalTopicTries}
+\nextTema{\IMInformationStorageandRetrievalTopicMorphological}
+\nextTema{\IMInformationStorageandRetrievalTopicTerm}
+\nextTema{\IMInformationStorageandRetrievalTopicVector}
+\nextTema{\IMInformationStorageandRetrievalTopicInformation}
+\nextTema{\IMInformationStorageandRetrievalTopicThesauri}
+\nextTema{\IMInformationStorageandRetrievalTopicBibliographic}
+\nextTema{\IMInformationStorageandRetrievalTopicRouting}
+\nextTema{\IMInformationStorageandRetrievalTopicMultimedia}
+\nextTema{\IMInformationStorageandRetrievalTopicInformationSummarization}
+\nextTema{\IMInformationStorageandRetrievalTopicFaceted}
+\nextTema{\IMInformationStorageandRetrievalTopicDigital}
+\nextTema{\IMInformationStorageandRetrievalTopicDigitization}
+\nextTema{\IMInformationStorageandRetrievalTopicMetadata}
+\nextTema{\IMInformationStorageandRetrievalTopicNaming}
+\nextTema{\IMInformationStorageandRetrievalTopicArchiving}
+\nextTema{\IMInformationStorageandRetrievalTopicSpaces}
+\nextTema{\IMInformationStorageandRetrievalTopicArchitectures}
+\nextTema{\IMInformationStorageandRetrievalTopicServices}
+\nextTema{\IMInformationStorageandRetrievalTopicIntellectual}
+
+\cite{brusilovsky98}, \cite{elmasri04} 
+
+
+%inicio unidad
+\nextUnidad{\IMDistributedDatabases}
+\nextCapitulo{\IMDistributedDatabases}
+\nextTema{\IMDistributedDatabasesTopicDistributed}
+\nextTema{\IMDistributedDatabasesTopicParallel}
+
+\cite{ozsu99}, \cite{date04} 
+
+
+
+
+
+\end{contenidos}
+
+
+
+
+\begin{estrategiasEnsenanza}
+    \begin{metodos}
+        Método expositivo en las clases teóricas \\
+        Método de elaboración conjunta en los seminarios taller y en la elaboración del proyecto de investigación.
+    \end{metodos}
+    \begin{medios}
+        Pizarra acrílica, plumones, cañón multimedia, material de laboratorio, videos, software.
+    \end{medios}
+    \begin{formasOrganizacion}
+        %Se pone los que se necesiten
+        \newItemFO{Clases Teóricas}{Desarrollo de los conceptos teóricos}
+        \newItemFO{Seminarios}{Algo...}
+        \newItemFO{Prácticas}{Algo...}
+        \newItemFO{Laboratorio}{Aplicación de los conceptos vistos es clases teóricas.}
+        \newItemFO{Otros}{Algo...}
+    \end{formasOrganizacion}
+    \begin{programacion}
+        \newItemFO{Investigación Formativa}{Implementación de Sistema Computacional Web usando una base de datos relacional normalizada}
+        \newItemFO{Responsabilidad Social}{Generar videos para la enseñanza de implementación de bases de datos y que sean disponibilizados de la población}
+    \end{programacion}
+    \begin{segumientoAprendizaje}
+        Aquí va el seguimiento del aprendizaje
+    \end{segumientoAprendizaje}
+\end{estrategiasEnsenanza}
+
+
+\begin{cronogramaAcademico}
+    \newItemCA{Tema1}{Edward Hinojosa Cárdenas}{10}  %Tema/Evaluación - Docente - Porcentaje acumulado
+    \newItemCA{Tema2}{Edward Hinojosa Cárdenas}{16}
+    \newItemCA{Tema3}{Edward Hinojosa Cárdenas}{20}
+    \newItemCA{Tema4}{Edward Hinojosa Cárdenas}{25}
+    \newItemCA{Tema5}{Edward Hinojosa Cárdenas}{33}
+    \newItemCA{Tema6}{Edward Hinojosa Cárdenas}{37}
+    \newItemCA{Tema7}{Edward Hinojosa Cárdenas}{40}
+    \newItemCA{Tema8}{Edward Hinojosa Cárdenas}{45}
+    \newItemCA{Tema9}{Edward Hinojosa Cárdenas}{50}
+    \newItemCA{Tema10}{Edward Hinojosa Cárdenas}{53}
+    \newItemCA{Tema11}{Edward Hinojosa Cárdenas}{58}
+    \newItemCA{Tema12}{Edward Hinojosa Cárdenas}{64}
+    \newItemCA{Tema13}{Edward Hinojosa Cárdenas}{69}
+    \newItemCA{Tema14}{Edward Hinojosa Cárdenas}{76}
+    \newItemCA{Tema15}{Edward Hinojosa Cárdenas}{84}
+    \newItemCA{Tema16}{Edward Hinojosa Cárdenas}{93}
+    \newItemCA{Tema17}{Edward Hinojosa Cárdenas}{100}
+\end{cronogramaAcademico}
+
+\begin{estrategiasEvaluacion}
+    \begin{evaluacionContinua}
+        Práctica y Laboratorios en cada clase sobre los temas realizados, tanto para el primer parcial (EC1), segundo parcial (EC2) y tercer parcial (EC3).
+    \end{evaluacionContinua}
+    \begin{evaluacionPeriodica}
+        \newItemEP{Primer Examen}{ponderación}
+        \newItemEP{Segundo Examen}{ponderación}
+        \newItemEP{Tercer Examen}{}
+    \end{evaluacionPeriodica}
+    \begin{cronogramaEvaluacion}
+        \newItemCE{11/5/2019}{11/5/2019}{11/5/2019}{30\%}
+        \newItemCE{11/8/2019}{11/8/2019}{11/8/2019}{30\%}
+        \newItemCE{11/12/2019}{11/12/2019}{11/12/2019}{40\%}
+    \end{cronogramaEvaluacion}
+    \begin{tipoEvaluacion}
+        Tipo de evaluación
+    \end{tipoEvaluacion}
+    \begin{instrumentosEvaluacion}
+        Instrumentos de evaluación
+    \end{instrumentosEvaluacion}
+\end{estrategiasEvaluacion}
+
+\begin{requisitosAprobacion}
+\item El alumno tendrá derecho a observar o en su defecto a ratificar las notas consignadas en sus evaluaciones, después de ser entregadas las mismas por parte del profesor, salvo el vencimiento de plazos para culminación del semestre académico, luego del mismo, no se admitirán reclamaciones,
+alumno que no se haga presente en el día establecido, perderá su derecho a reclamo.
+\item Para aprobar ...
+\end{requisitosAprobacion}
+
+\bibliography{CS272.bib}
+\bibliographystyle{apalike}
+
+\fecha
+\firma
+
+\end{document}
+
+
