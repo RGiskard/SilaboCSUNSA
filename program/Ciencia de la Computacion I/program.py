@@ -80,7 +80,6 @@ criterios = getCriterios()
 nivelesEstudiante = getNiveles()
 notasXcriterio = getNotasXcriterio()
 
-print notasXcriterio
 
 resumenFinal = {}
 for criterio, notasIds in notasXcriterio.iteritems():
