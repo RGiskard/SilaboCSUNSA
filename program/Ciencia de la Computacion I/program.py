@@ -88,8 +88,6 @@ for criterio, notasIds in notasXcriterio.iteritems():
         niveles_reporte[key] = [0,0]
     notasTemp = []
 
-     #nota[nId] for nota in notas for nId in notasIds
-
     for i in range(0, len(notasIds)):
         nId = notasIds[i]
         for j in range(0, len(notas)):
@@ -104,9 +102,9 @@ for criterio, notasIds in notasXcriterio.iteritems():
     for key, value in niveles_reporte.iteritems():
         niveles_reporte[key][1] = value[0] * float(100) / float(len(notas))
 
-    print niveles_reporte #Nivel, [frecuencia, porcentaje]
-        
-        
+    resumenFinal[criterio] = niveles_reporte  #Nivel, [frecuencia, porcentaje]
+
+print resumenFinal
             
 
 
