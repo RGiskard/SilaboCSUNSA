@@ -84,6 +84,65 @@ def verifyNota(nivelesEstudiante, nota):
         if(nota <= rangos[1]):
             return key
 
+
+def plotBarChart(labelsNiveles, notasXcriterio, nivelesEstudiante, resumenFinal):
+    raw_data_for_ploting = {}
+    raw_data_for_ploting[CRITERIOS_LABEL] = [criterio for criterio, notasIds in notasXcriterio.iteritems()]
+    raw_data_for_ploting[CRITERIOS_LABEL].sort()
+
+    for nivel in nivelesEstudiante:
+        raw_data_for_ploting[nivel] = []
+    for criterio in raw_data_for_ploting[CRITERIOS_LABEL]:    
+        for nivel, values in resumenFinal[criterio].iteritems():
+            raw_data_for_ploting[nivel].append(values[0])
+            
+    labelsNiveles.insert(0, CRITERIOS_LABEL)
+
+    df = pd.DataFrame(raw_data_for_ploting, columns = labelsNiveles)
+    pos = list(range(len(df[labelsNiveles[1]]))) 
+    width = 0.25
+
+    ig, ax = plt.subplots(figsize=(10,5))
+
+    for i in range(1,len(labelsNiveles)):
+        label = labelsNiveles[i]
+        plt.bar([p + width * (i - 1) for p in pos],
+                df[label], 
+                width, 
+                alpha=0.5, 
+                color=COLORS[i-1], 
+                edgecolor='#000000',
+                label=df[CRITERIOS_LABEL][i - 1]) 
+
+    ax.set_ylabel(Y_LABEL)
+
+    ax.set_title(CHART_TITLE)
+
+    ax.set_xticks([p + 1.5 * width for p in pos])
+
+    ax.set_xticklabels(df[CRITERIOS_LABEL])
+
+    plt.xlim(min(pos)-width, max(pos)+width*4)
+
+    height = []
+    for i in range (1,len(labelsNiveles)):
+        label = labelsNiveles[i]
+        if len(height) == 0:
+            height = df[label]
+        else:
+            height += df[label]
+
+    plt.ylim([0, max(height)] )
+
+    plt.legend(labelsNiveles[1:], loc='upper left')
+    #plt.grid()
+    plt.show()
+
+
+
+#-------INICIO MAIN ---------
+
+
 if len(sys.argv) < 2:
     print "Faltan argumentos <notas.csv>"
     sys.exit()
@@ -120,56 +179,7 @@ for criterio, notasIds in notasXcriterio.iteritems():
     resumenFinal[criterio] = niveles_reporte  #Nivel, [frecuencia, porcentaje]
 
 
-raw_data_for_ploting = {}
-raw_data_for_ploting[CRITERIOS_LABEL] = [criterio for criterio, notasIds in notasXcriterio.iteritems()]
-raw_data_for_ploting[CRITERIOS_LABEL].sort()
-
-for nivel in nivelesEstudiante:
-    raw_data_for_ploting[nivel] = []
-for criterio in raw_data_for_ploting[CRITERIOS_LABEL]:    
-     for nivel, values in resumenFinal[criterio].iteritems():
-         raw_data_for_ploting[nivel].append(values[0])
-         
-labelsNiveles.insert(0, CRITERIOS_LABEL)
-
-df = pd.DataFrame(raw_data_for_ploting, columns = labelsNiveles)
-pos = list(range(len(df[labelsNiveles[1]]))) 
-width = 0.25
-
-ig, ax = plt.subplots(figsize=(10,5))
-
-for i in range(1,len(labelsNiveles)):
-    label = labelsNiveles[i]
-    plt.bar([p + width * (i - 1) for p in pos],
-            df[label], 
-            width, 
-            alpha=0.5, 
-            color=COLORS[i-1], 
-            label=df[CRITERIOS_LABEL][i - 1]) 
-
-ax.set_ylabel(Y_LABEL)
-
-ax.set_title(CHART_TITLE)
-
-ax.set_xticks([p + 1.5 * width for p in pos])
-
-ax.set_xticklabels(df[CRITERIOS_LABEL])
-
-plt.xlim(min(pos)-width, max(pos)+width*4)
-
-height = []
-for i in range (1,len(labelsNiveles)):
-    label = labelsNiveles[i]
-    if len(height) == 0:
-        height = df[label]
-    else:
-        height += df[label]
-
-plt.ylim([0, max(height)] )
-
-plt.legend(labelsNiveles[1:], loc='upper left')
-plt.grid()
-plt.show()
+plotBarChart(labelsNiveles, notasXcriterio, nivelesEstudiante, resumenFinal)
 
 
 
